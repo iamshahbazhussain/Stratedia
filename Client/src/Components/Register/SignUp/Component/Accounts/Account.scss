@@ -1,0 +1,123 @@
+.main_account {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  @media(max-width:850px) {
+    height: unset;
+  }
+
+  .signup_content {
+    width: 840px;
+    height: 535px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 10px 2px;
+
+    @media(max-width:850px) {
+      width: 100%;
+      margin: 1rem;
+      height: unset;
+      padding: 30px 20px;
+    }
+
+    @media(max-width:500px) {
+      width: 95%;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #323338;
+      font-family: 'Roboto', helvetica;
+
+      @media(max-width:450px) {
+        font-size: 20px;
+      }
+    }
+
+    .para {
+      font-weight: 400;
+      color: #676879;
+      text-align: center;
+      font-size: 16px;
+      font-family: 'Roboto', helvetica;
+
+      @media(max-width:550px) {
+        font-size: 12px;
+      }
+    }
+
+    .cards_main {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+
+      @media(max-width:800px) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+      }
+
+      @media(max-width:420px) {
+        flex-wrap: unset;
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .card {
+        width: 164px;
+        height: 160px;
+        display: flex;
+        background-color: whitesmoke;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: .5s ease-in-out;
+        gap: .5rem;
+
+        @media(max-width:420px) {
+          width: 95%;
+        }
+
+        &:hover {
+          border: 1px solid blue;
+        }
+
+        img {
+          width: 60px;
+          height: 70px;
+          object-fit: contain;
+        }
+
+        .name {
+          font-weight: 700;
+          color: rgb(61, 61, 61);
+          font-size: 1rem;
+          text-align: center;
+          line-height: 1.5rem;
+        }
+
+        .type {
+          color: rgb(61, 61, 61);
+          font-family: Roboto, sans-serif;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
