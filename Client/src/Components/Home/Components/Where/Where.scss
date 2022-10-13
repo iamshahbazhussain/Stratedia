@@ -1,0 +1,29 @@
+.main_where {
+    width: 100%;
+    height: 100vh;
+    background: url('../../../../Assets/wherebg.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+        font-size: calc(1.375rem + (1vw - 3.75px) * 1.1268);
+        line-height: calc(1.875rem + 6 * ((100vw - 21rem) / 680));
+        font-weight: 700;
+        font-family: Poppins, sans-serif;
+        color: rgb(0, 0, 0);
+        padding-top: 80px;
+    }
+
+    .para {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: rgb(0, 0, 0);
+        letter-spacing: 0.1px;
+        padding-top: 20px;
+        text-align: center;
+    }
+}

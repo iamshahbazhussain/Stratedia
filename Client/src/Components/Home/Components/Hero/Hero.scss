@@ -1,0 +1,124 @@
+.hero_main {
+    background-color: #03073a;
+    width: 100%;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+        padding-bottom: 12px;
+        font-weight: 400;
+        font-size: 80px;
+        line-height: 85px;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        word-break: break-word;
+        max-width: 800px;
+        margin-top: 0px;
+        padding-top: 60px;
+        margin-bottom: 16px;
+        font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
+
+    }
+
+    .para {
+        color: rgb(255, 255, 255);
+        font-weight: 400;
+        text-align: center;
+        font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
+        word-break: break-word;
+        font-size: 24px;
+        line-height: 40px;
+    }
+
+    .cards_main {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 0;
+
+        .card {
+
+            width: 124px;
+            height: 126px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            margin: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 8px 16px 8px;
+            cursor: pointer;
+            transition: border 0.1s ease-in-out;
+
+            img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .name {
+                transition: opacity 100ms ease-in-out;
+                text-align: center;
+                font-size: 16px;
+                color: #ffffff;
+                opacity: 85%;
+                padding-top: 4px;
+                padding-right: 8px;
+                padding-left: 8px;
+                font-weight: 300;
+                font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
+            }
+        }
+    }
+
+    button {
+        background: linear-gradient(90deg, #5034FF 25.69%, #B4B4FF 100%);
+        transition: 0.1s ease background-color;
+        min-width: 130px;
+        padding: 16px 32px 16px 31px;
+        user-select: none;
+        line-height: 17px;
+        font-size: 18px;
+        font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
+        border-radius: 40px;
+        color: #ffffff;
+        border: none;
+        font-weight: 400;
+        text-align: center;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        &:hover {
+            background: linear-gradient(90deg, #432cd5 25.69%, #9797d5 100%);
+
+            svg {
+                left: 10px;
+            }
+
+        }
+
+        svg {
+            fill: #ffffff;
+            position: relative;
+            left: 5px;
+            transition: .3s ease-in-out;
+        }
+    }
+
+    .no {
+        font-size: 14px;
+        line-height: 18px;
+        text-align: center;
+        font-weight: 300;
+        color: #ffffff;
+        margin-top: 14px;
+        font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
+    }
+
+}

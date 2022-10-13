@@ -1,0 +1,168 @@
+.main_car{
+    width: 100%;
+    
+    padding-top: 30px;
+    
+        .title_blue {
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: rgb(44, 75, 255);
+            transition: all 0.3s ease-in 0s;
+            text-align: center;
+            font-family: Roboto, sans-serif;
+        }
+    
+        .title {
+            text-align: center;
+            font-family: Poppins, sans-serif;
+            color: rgb(0, 0, 0);
+            font-size: calc(1.375rem + (1vw - 3.75px) * 1.1268);
+            line-height: calc(1.875rem + 6 * ((100vw - 21rem) / 680));
+            font-weight: 700;
+            padding-bottom: 30px;
+            padding-top: 20px;
+    
+        }
+    
+    .main_slid{
+        padding-top: 30px;
+    
+    .slick-list{
+    padding: 60px 0;
+    }
+    
+        .slick-prev {
+            
+            display: none !important;
+        }
+        
+        .slick-next {
+            display: none !important;
+        }
+        
+            .card{
+                width: 380px;
+                border-radius: 10px;
+                position: relative;
+                padding: 50px;
+                display: flex;
+                flex-direction: column;
+                -webkit-box-align: center;
+                align-items: center;
+                -webkit-box-pack: center;
+                justify-content: center;
+                box-shadow: rgb(0 0 0 / 20%) 0px 0px 30px -1px;
+                margin: 0px 20px;
+                height: 350px;
+            
+            .pic{
+            position: absolute;
+            top: -55px;
+                
+                img{
+                    width: 110px;
+                    height: 110px;
+                    background-color: gray;
+                    border-radius: 50%;
+                }
+            } 
+            
+            .para{
+                font-family: Roboto, sans-serif;
+                margin: 25px 0px;
+                color: rgb(0, 0, 0);
+                letter-spacing: 0.1px;
+                font-size: 1rem;
+                line-height: 1.6;
+                text-align: center;
+            }
+            
+            .svg{
+                width: 100px;
+                height: 49px;
+            }
+            
+            .comt{
+                font-weight: bolder;
+                font-family: Roboto, sans-serif;
+                color: rgb(0, 0, 0);
+                letter-spacing: 0.1px;
+                font-size: 1rem;
+                line-height: 1.6;
+                text-align: center;
+                margin-top: 25px;
+            }
+            
+            }
+    }
+    
+    
+    .main_num{
+        width: 1248px;
+        padding: 0px 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 40px;
+    
+        .num{
+            width: 288px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            .num_title{
+                font-family: Poppins, sans-serif;
+                font-weight: 700;
+                line-height: 2.75rem;
+                color: rgb(44, 75, 255); 
+                font-size: 42px;
+            }
+    
+            .num_para{
+                line-height: 1.8;
+                font-size: 1rem;
+                text-align: center;
+                color: rgb(0, 0, 0);
+                letter-spacing: 0.1px;
+            }
+        }
+    
+    }
+    
+    
+    .partner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 40px;
+        .p_para{
+            font-family: Poppins, sans-serif;
+            color: rgb(0, 0, 0);
+            line-height: 1.5;
+            font-weight: 700;
+            text-align: center;
+        padding-top: 25px;
+        font-size: 16px;
+        max-width: 600px;
+        }
+    
+        .img_sec{
+            display: flex;
+    
+            img{
+                padding: 25px;
+                object-fit: contain;
+                width: 200px;
+            }
+        }
+    }
+    
+    }
+    
+    

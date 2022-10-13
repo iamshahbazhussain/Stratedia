@@ -1,0 +1,120 @@
+.main_use {
+    background-color: #004dfe;
+    height: 456px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+
+    .para {
+        text-align: center;
+        margin-bottom: 50px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        color: rgb(255, 255, 255);
+        font-family: Poppins, sans-serif;
+        font-size: 1.875rem;
+        line-height: 2.75rem;
+        margin: 0px 0px 1.875rem;
+        font-weight: 700;
+    }
+
+    button {
+        text-align: center;
+        font-size: 18px;
+        border-radius: 5px;
+        border: none;
+        letter-spacing: 0.3px;
+        cursor: pointer;
+        font-family: Roboto, sans-serif;
+        color: rgb(255, 255, 255);
+        background-color: rgb(233, 114, 132);
+        line-height: 4.1;
+        font-weight: 500;
+        padding: 0px 36px;
+        height: 74px;
+        box-shadow: rgb(35 31 32 / 20%) 0px 18px 30px;
+
+        &:hover{
+            background-color: rgb(229, 87, 108);
+        }
+    }
+
+.baal{
+    background: url('../../../../Assets/gtri.svg');
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 120px;
+    top: 70px;
+}
+
+.pink{
+    background: url('.././../../../Assets/pink.png');
+    width: 170px;
+    height: 170px;
+    overflow: hidden;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: -60px;
+}
+
+.circle{
+    background: url('.././../../../Assets/pcircle.svg');
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 120px;
+    bottom: -25px;
+}
+
+.ytri{
+    background: url('.././../../../Assets/ytri.svg');
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 70px;
+    bottom: 180px; 
+}
+.lin{
+    background: url('.././../../../Assets/lin.svg');
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: -50px;
+    bottom: 250px; 
+}
+
+.brush{
+    background: url('.././../../../Assets/brush.png');
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 200px;
+   top: 30px;
+}
+
+}

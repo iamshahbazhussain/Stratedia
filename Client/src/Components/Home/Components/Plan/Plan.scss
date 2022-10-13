@@ -1,0 +1,113 @@
+.main_plan {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+
+    .left_ana {
+        width: 474px;
+
+        .title_blue {
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: rgb(44, 75, 255);
+            transition: all 0.3s ease-in 0s;
+            text-align: left;
+            font-family: Roboto, sans-serif;
+        }
+
+        .title {
+            text-align: left;
+            font-family: Poppins, sans-serif;
+            color: rgb(0, 0, 0);
+            font-size: calc(1.375rem + (1vw - 3.75px) * 1.1268);
+            line-height: calc(1.875rem + 6 * ((100vw - 21rem) / 680));
+            font-weight: 700;
+            padding-bottom: 30px;
+            padding-top: 20px;
+
+        }
+
+        .para {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin: 0px 0px 1rem;
+            color: rgb(0, 0, 0);
+            letter-spacing: 0.1px;
+            text-align: left;
+
+        }
+
+        .btn_sec {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 16px;
+
+            .btn1 {
+                display: flex;
+                text-align: center;
+                align-items: center;
+                font-size: 18px;
+                line-height: 2.6;
+                font-weight: 400;
+                border-radius: 5px;
+                cursor: pointer;
+                height: 48px;
+                font-family: Roboto, sans-serif;
+                background-color: rgb(44, 75, 255);
+                color: rgb(255, 255, 255);
+                padding: 0px 24px;
+                justify-content: center;
+                box-sizing: border-box;
+                border: none;
+                transition: .3s ease-in-out;
+
+                &:hover {
+                    background-color: rgb(31, 53, 179);
+                }
+            }
+
+            .btn2 {
+                transition: .3s ease-in-out;
+                display: flex;
+                text-align: center;
+                align-items: center;
+                font-size: 18px;
+                line-height: 2.6;
+                font-weight: 400;
+                border-radius: 5px;
+                cursor: pointer;
+                height: 48px;
+                font-family: Roboto, sans-serif;
+                padding: 0px 24px;
+                justify-content: center;
+                box-sizing: border-box;
+                border: 1px solid rgb(44, 75, 255);
+                background-color: transparent;
+                color: rgb(44, 75, 255);
+
+                &:hover {
+                    background-color: rgb(214, 219, 252);
+                }
+            }
+
+
+        }
+
+    }
+
+    .right_ana {
+        img {
+            width: 474px;
+            height: 402px;
+          object-fit: contain;
+        }
+    }
+
+}
