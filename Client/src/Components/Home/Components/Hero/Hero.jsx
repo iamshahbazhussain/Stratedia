@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 // images 
 import box from "../../../../Assets/box.png";
@@ -59,13 +60,15 @@ const cards = [
 ];
 
 const Hero = () => {
+    let Navigate = useNavigate()
+
     return (
         <div className="hero_main">
             <div className="title">
                 A platform built for a <br /> new way of working
             </div>
             <div className="para">
-                What would you like to manage with monday.com Work OS?
+                What would you like to manage with Stratedia Work OS?
             </div>
             <div className="cards_main">
 
@@ -84,7 +87,7 @@ const Hero = () => {
 
 
             </div>
-            <button>
+            <button  onClick={()=> Navigate("/register")}>
                 Get Started
                <BsArrowRight/>
             </button>

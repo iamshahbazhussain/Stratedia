@@ -2,6 +2,7 @@
 
 # dependencies
 node_modules
+Tasks.txt
 /.pnp
 .pnp.js
 

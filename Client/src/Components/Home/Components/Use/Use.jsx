@@ -9,7 +9,7 @@ const Use = () => {
   return (
     <div className="main_use">
       <div className="para">
-        140,000+ people like you use Buffer to <br /> build their brand on
+        140,000+ people like you use Startedia to <br /> build their brand on
         social media <br /> every month
       </div>
       <button>Get Started now</button>

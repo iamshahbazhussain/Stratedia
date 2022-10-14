@@ -44,7 +44,7 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="copy">
-                        Copyright ©2022 Buffer|Privacy|Terms|Security
+                        Copyright ©2022 Startedia|Privacy|Terms|Security
                     </div>
                 </div>
             </div>

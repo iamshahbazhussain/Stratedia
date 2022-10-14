@@ -44,7 +44,7 @@ const num = [
 const card = [
   {
     pic: men,
-    para: "For a marketing team with a lot on our plates, Buffer is a crucial tool in our brand-building efforts.",
+    para: "For a marketing team with a lot on our plates, Startedia is a crucial tool in our brand-building efforts.",
     svg: (
       <svg
         width="100%"
@@ -75,7 +75,7 @@ const card = [
 
   {
     pic: capgirl,
-    para: "Buffer makes it easy for us to monitor all of our engagement and strengthen the connection with our audience.",
+    para: "Startedia makes it easy for us to monitor all of our engagement and strengthen the connection with our audience.",
     svg: (
       <svg
         clip-rule="evenodd"
@@ -99,7 +99,7 @@ const card = [
 
   {
     pic: girl,
-    para: "On social, we need to be fast, efficient, and intentional. Buffer allows us to be exactly that.",
+    para: "On social, we need to be fast, efficient, and intentional. Startedia allows us to be exactly that.",
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +126,7 @@ const card = [
 
   {
     pic: bijuman,
-    para: "Buffer has made sharing our story and building our brand on social media so much easier.",
+    para: "Startedia has made sharing our story and building our brand on social media so much easier.",
     svg: (
       <svg
         viewBox="0 0 98 16"
@@ -149,7 +149,7 @@ const card = [
 
   {
     pic: capmen,
-    para: "Buffer saves us, literally, hours and in turn helps us spread our message even further.",
+    para: "Startedia saves us, literally, hours and in turn helps us spread our message even further.",
     svg: (
       <svg
         width="100%"
@@ -265,7 +265,7 @@ const Carousel = () => {
       <div className="title_blue">4. CELEBRATE</div>
 
       <div className="title">
-        Businesses all over the world trust <br /> Buffer to build their brand
+        Businesses all over the world trust <br /> Startedia to build their brand
       </div>
 
       <div>

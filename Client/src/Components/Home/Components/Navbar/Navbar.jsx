@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // ant design components 
 import { Button, Drawer } from "antd";
@@ -23,11 +24,11 @@ const menu = (
   <Menu
     items={[
       {
-        label: <a href="https://www.antgroup.com">1st menu item</a>,
+        label: <a href="#">1st menu item</a>,
         key: "0",
       },
       {
-        label: <a href="https://www.aliyun.com">2nd menu item</a>,
+        label: <a href="#">2nd menu item</a>,
         key: "1",
       },
       {
@@ -45,7 +46,7 @@ const menu = (
 
 
 const Navbar = () => {
-
+  let Navigate = useNavigate()
 
   // drawer function and states 
   const [open, setOpen] = useState(false);
@@ -104,8 +105,8 @@ const Navbar = () => {
             <div>Pricing</div>
 
             <div>Contact sales</div>
-            <div>Log in</div>
-            <button>
+            <div onClick={() => Navigate("/login")}>Log in</div>
+            <button onClick={() => Navigate("/register")}>
               Get Started
               <BsArrowRight />
             </button>
@@ -158,7 +159,7 @@ const Navbar = () => {
             <div className="per">Pricing</div>
 
             <div className="per">Contact sales</div>
-            <div className="per">Log in</div>
+            <div className="per" onClick={() => Navigate("/login")}>Log in</div>
           </div>
         </Drawer>
       </div>
