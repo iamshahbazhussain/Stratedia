@@ -1,12 +1,26 @@
 .drawer {
     display: none;
 
-    @media (max-width: 800px) {
+    @media (max-width: 1050px) {
         display: block;
         position: absolute;
-        right: 0;
-        top: 30px;
+        right: 30px;
+        top: 18px;
     }
+
+    @media (max-width: 800px) {
+        right: 15px;
+    }
+}
+
+.ant-btn-primary {
+    color: #535768;
+    border-color: unset;
+    background: unset;
+    text-shadow: unset;
+    box-shadow: unset;
+    border: none;
+    font-size: 30px;
 }
 
 .ant-drawer-content-wrapper {
@@ -15,10 +29,52 @@
     height: 100%;
 }
 
+.ant-drawer-content-wrapper {
+    height: unset !important;
+}
+
 .ant-drawer-body {
-    background-color: #d5e2e3 !important;
-    width: 92%;
+    width: 100%;
     padding: 36px;
+
+    .nav_start {
+        display: flex;
+        flex-direction: column;
+
+        img {
+            width: 200px;
+        }
+
+        .ant-space-align-center {
+            width: 100%;
+            justify-content: start !important;
+            font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif !important;
+            font-weight: 300 !important;
+            font-size: 20px;
+            padding: 15px 10px !important;
+            color: #535768 !important;
+            border-bottom: 1px solid #f1f1f1;
+
+            &:hover {
+                color: #5034ff !important;
+            }
+        }
+
+        .per {
+            font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif !important;
+            font-weight: 300 !important;
+            font-size: 20px;
+            color: #535768 !important;
+            padding: 15px 10px;
+            border-bottom: 1px solid #f1f1f1;
+
+            &:hover {
+                background-color: #f0f3ff;
+                color: #5034ff !important;
+                border-radius: 8px;
+            }
+        }
+    }
 }
 
 .ant-drawer-header {
@@ -31,7 +87,7 @@
 .ant-drawer-close {
     position: absolute;
     right: 1%;
-    top: 20px;
+    top: 54px;
     font-size: 20px;
     color: #86a7ac !important;
 }
@@ -45,7 +101,6 @@
 
     &:hover {
         background-color: #f0f3ff;
-        color: #5034ff !important;
         border-radius: 8px;
     }
 }
@@ -91,9 +146,7 @@
         align-items: center;
 
         @media (max-width: 800px) {
-            justify-content: center;
-            padding-top: 20px;
-            padding-bottom: 20px;
+            padding: 0 15px;
         }
 
         .nav_text {
@@ -102,8 +155,8 @@
             align-items: center;
             justify-content: center;
 
-            @media (max-width: 800px) {
-                display: none;
+            @media (max-width: 1100px) {
+                gap: 0.5rem;
             }
 
             div {
@@ -111,6 +164,18 @@
                 font-weight: 300 !important;
                 font-size: 16px;
                 color: #535768 !important;
+
+                &:hover {
+                    color: #5034ff !important;
+                }
+
+                @media (max-width: 1050px) {
+                    display: none;
+                }
+
+                @media (max-width: 1200px) {
+                    font-size: 13px;
+                }
             }
         }
 
@@ -119,6 +184,10 @@
             gap: 1rem;
             align-items: center;
             justify-content: center;
+
+            @media (max-width: 1100px) {
+                gap: 0.5rem;
+            }
 
             @media (max-width: 800px) {
                 display: none;
@@ -136,6 +205,14 @@
                     background-color: #f0f3ff;
                     color: #5034ff !important;
                     border-radius: 8px;
+                }
+
+                @media (max-width: 1050px) {
+                    display: none;
+                }
+
+                @media (max-width: 1200px) {
+                    font-size: 13px;
                 }
             }
 
@@ -170,16 +247,9 @@
                     left: 8px;
                     transition: 0.3s ease-in-out;
                 }
-            }
-        }
 
-        .nav_centre {
-            img {
-                max-width: 256px;
-                width: 100%;
-
-                @media (max-width: 800px) {
-                    max-width: 180px;
+                @media (max-width: 1050px) {
+                    display: none;
                 }
             }
         }

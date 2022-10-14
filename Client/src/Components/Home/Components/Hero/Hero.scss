@@ -20,6 +20,22 @@
         margin-bottom: 16px;
         font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
 
+        @media (max-width: 850px) {
+            font-size: 60px;
+            line-height: 60px;
+            padding-bottom: unset;
+        }
+
+        @media (max-width: 600px) {
+            font-size: 40px;
+            line-height: 40px;
+            padding-top: 30px;
+        }
+
+        @media (max-width: 400px) {
+            font-size: 30px;
+            line-height: 30px;
+        }
     }
 
     .para {
@@ -30,6 +46,12 @@
         word-break: break-word;
         font-size: 24px;
         line-height: 40px;
+        padding: 0 20px;
+
+        @media (max-width: 850px) {
+            font-size: 20px;
+            line-height: 30px;
+        }
     }
 
     .cards_main {
@@ -37,10 +59,14 @@
         width: 100%;
         justify-content: center;
         align-items: center;
-        padding: 50px 0;
+        padding: 50px 20px;
+        flex-wrap: wrap;
+
+        @media (max-width: 550px) {
+            padding: 20px 20px;
+        }
 
         .card {
-
             width: 124px;
             height: 126px;
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -75,7 +101,7 @@
     }
 
     button {
-        background: linear-gradient(90deg, #5034FF 25.69%, #B4B4FF 100%);
+        background: linear-gradient(90deg, #5034ff 25.69%, #b4b4ff 100%);
         transition: 0.1s ease background-color;
         min-width: 130px;
         padding: 16px 32px 16px 31px;
@@ -93,21 +119,19 @@
         justify-content: center;
         align-items: center;
 
-
         &:hover {
             background: linear-gradient(90deg, #432cd5 25.69%, #9797d5 100%);
 
             svg {
                 left: 10px;
             }
-
         }
 
         svg {
             fill: #ffffff;
             position: relative;
             left: 5px;
-            transition: .3s ease-in-out;
+            transition: 0.3s ease-in-out;
         }
     }
 
@@ -119,6 +143,9 @@
         color: #ffffff;
         margin-top: 14px;
         font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
-    }
 
+        @media (max-width: 550px) {
+            padding: 0 20px;
+        }
+    }
 }
