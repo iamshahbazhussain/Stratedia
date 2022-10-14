@@ -60,10 +60,20 @@ const Navbar = () => {
   };
 
 
+  const [changeNavbar, setChangeNavBar] = useState(false);
+  const changingNavBar = () => {
+    if (window.scrollY >= 80) {
+      setChangeNavBar(true);
+    } else {
+      setChangeNavBar(false);
+    }
+  };
+  window.addEventListener("scroll", changingNavBar);
 
   return (
     <>
-      <div className="main_nav">
+    <div className="nav_back"></div>
+      <div className="main_nav" style={changeNavbar ? {boxShadow:"0px 4px 4px rgb(29 140 242 / 8%)"} : {}}>
         <div className="nav_content">
           <div className="nav_text">
             <img src={logo} />

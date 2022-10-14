@@ -11,6 +11,7 @@ import capgirl from "../../../../Assets/capgirl.jpg";
 import bijuman from "../../../../Assets/bijuman.jpg";
 import capmen from "../../../../Assets/capman.jpg";
 import girl from "../../../../Assets/girl.jpg";
+import partner from "../../../../Assets/partner.webp";
 import meta from "../../../../Assets/meta.png";
 import pin from "../../../../Assets/pin.png";
 import inlin from "../../../../Assets/in.png";
@@ -317,10 +318,11 @@ const Carousel = () => {
         <div className="p_para">
           An official marketing partner of the industry leaders
         </div>
+        <img className="partner_img" src={partner} />
         <div className="img_sec">
-          <img src={meta} />
-          <img src={pin} />
-          <img src={inlin} />
+          {/* <img src={meta} /> */}
+          {/* <img src={pin} />
+          <img src={inlin} /> */}
         </div>
       </div>
     </div>

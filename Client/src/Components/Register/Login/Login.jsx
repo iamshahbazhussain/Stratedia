@@ -46,8 +46,8 @@ const Login = () => {
                         I want into the future but also tailor campaigns if we see
                         certain trends within the industry.”
                     </div>
-                    <div className="name">Justin Ozanich</div>
-                    <div className="prof">Marketing Manager</div>
+                    <div className="name">Steve Bibby</div>
+                    <div className="prof">CEO</div>
                     <div className="prof">Foster Coffee Company</div>
                 </div>
             </div>

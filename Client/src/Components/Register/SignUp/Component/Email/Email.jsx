@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate } from 'react-router-dom';
 
 // picture 
 import right from '../../../../../Assets/right.jpg';
@@ -14,6 +14,7 @@ import './Email.scss';
 
 
 const Email = () => {
+  let Navigate = useNavigate()
 
   return (
     <>
@@ -32,7 +33,7 @@ const Email = () => {
               </Link>
               <div className="or">OR</div>
               <div className="google_btn"> <BsGoogle /> Continue With Google</div>
-              <div className="already">Already have an account?<span>Log in</span></div>
+              <div className="already">Already have an account? <span onClick={()=> Navigate("/login")}> Log in</span></div>
             </div>
           </div>
           <div className="signup_right"><img src={right} alt='Image Error' /></div>

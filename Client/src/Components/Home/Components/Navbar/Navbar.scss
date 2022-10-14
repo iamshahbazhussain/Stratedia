@@ -1,3 +1,7 @@
+.nav_back{
+    background-color: white;
+    height: 80px;
+}
 .drawer {
     display: none;
 
@@ -42,7 +46,7 @@
         flex-direction: column;
 
         img {
-            width: 200px;
+            width: 220px;
         }
 
         .ant-space-align-center {
@@ -136,6 +140,13 @@
     align-items: center;
     position: relative;
     padding: 15px 0;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    transition: all .5s;
 
     .nav_content {
         width: 1440px;
