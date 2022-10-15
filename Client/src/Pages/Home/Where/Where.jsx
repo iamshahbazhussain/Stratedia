@@ -1,7 +1,7 @@
 import React from 'react'
 
 // image 
-import wer from '../../../../Assets/wherebg.png';
+import wer from '../../../Assets/wherebg.png';
 
 // css 
 import './Where.scss'

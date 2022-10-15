@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 // ASSETS :
 import buffer from '../../../Assets/buffer.svg'
 import Logo from "../../../Assets/logo.png"
-import Footer from '../../Home/Components/Footer/Footer';
-import Navbar from '../../Home/Components/Navbar/Navbar';
+import Footer from '../../Footer/Footer';
+import Navbar from '../../Navbar/Navbar';
 
 // CSS :
 import './Login.scss';

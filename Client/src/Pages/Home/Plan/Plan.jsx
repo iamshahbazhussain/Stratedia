@@ -1,7 +1,7 @@
 import React from "react";
 
 // imgs
-import ana from "../../../../Assets/plan.webp";
+import ana from "../../../Assets/plan.webp";
 
 // css
 import "./Plan.scss";

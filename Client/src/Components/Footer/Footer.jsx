@@ -2,7 +2,8 @@ import React from "react";
 import { Navigate, useNavigate } from "react-router-dom"
 
 // imgs 
-import log from "../../../../Assets/logo.png";
+import log from "../../Assets/logo.png";
+
 import { BsInstagram, BsGoogle, BsYoutube } from "react-icons/bs";
 import { BsApple } from "react-icons/bs";
 import { BsTwitter } from "react-icons/bs";

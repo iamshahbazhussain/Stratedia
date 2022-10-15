@@ -8,7 +8,7 @@ import { Dropdown, Menu, Space } from "antd";
 import "antd/dist/antd.css";
 
 // images 
-import logo from "../../../../Assets/logo.png";
+import logo from "../../Assets/logo.png";
 
 // icons 
 import { AiOutlineMenu } from "react-icons/ai";
@@ -72,48 +72,50 @@ const Navbar = () => {
 
   return (
     <>
-    <div className="nav_back"></div>
-      <div className="main_nav" style={changeNavbar ? {boxShadow:"0px 4px 4px rgb(29 140 242 / 8%)"} : {}}>
+
+      <div className="main_nav" style={changeNavbar ? { boxShadow: "0px 4px 4px rgb(29 140 242 / 8%)" } : {}}>
         <div className="nav_content">
           <div className="nav_text">
-            <img src={logo} />
-            <Dropdown overlay={menu} trigger={["click"]}>
-              <a onClick={(e) => e.preventDefault()}>
-                <Space>
-                  Products
-                  <DownOutlined />
-                </Space>
-              </a>
-            </Dropdown>
-            <Dropdown overlay={menu} trigger={["click"]}>
-              <a onClick={(e) => e.preventDefault()}>
-                <Space>
-                  Use cases
-                  <DownOutlined />
-                </Space>
-              </a>
-            </Dropdown>
-            <Dropdown overlay={menu} trigger={["click"]}>
-              <a onClick={(e) => e.preventDefault()}>
-                <Space>
-                  Features
-                  <DownOutlined />
-                </Space>
-              </a>
-            </Dropdown>
-            <Dropdown overlay={menu} trigger={["click"]}>
-              <a onClick={(e) => e.preventDefault()}>
-                <Space>
-                  Resources
-                  <DownOutlined />
-                </Space>
-              </a>
-            </Dropdown>
+            <img src={logo} onClick={() => Navigate("/")} />
+            <div className="text_cent">
+
+              <Dropdown overlay={menu} trigger={["click"]}>
+                <a onClick={(e) => e.preventDefault()}>
+                  <Space>
+                    Products
+                    <DownOutlined />
+                  </Space>
+                </a>
+              </Dropdown>
+              <Dropdown overlay={menu} trigger={["click"]}>
+                <a onClick={(e) => e.preventDefault()}>
+                  <Space>
+                    Use cases
+                    <DownOutlined />
+                  </Space>
+                </a>
+              </Dropdown>
+              <Dropdown overlay={menu} trigger={["click"]}>
+                <a onClick={(e) => e.preventDefault()}>
+                  <Space>
+                    Features
+                    <DownOutlined />
+                  </Space>
+                </a>
+              </Dropdown>
+              <Dropdown overlay={menu} trigger={["click"]}>
+                <a onClick={(e) => e.preventDefault()}>
+                  <Space>
+                    Resources
+                    <DownOutlined />
+                  </Space>
+                </a>
+              </Dropdown>
+            </div>
           </div>
 
           <div className="nav_text2">
             <div>Pricing</div>
-
             <div>Contact sales</div>
             <div onClick={() => Navigate("/login")}>Log in</div>
             <button onClick={() => Navigate("/register")}>
@@ -132,7 +134,7 @@ const Navbar = () => {
         </Button>
         <Drawer placement="top" onClose={onClose} open={open}>
           <div className="nav_start">
-            <img src={logo} />
+            <img src={logo} onClick={() => Navigate("/")} />
 
             <Dropdown overlay={menu} trigger={["click"]}>
               <a onClick={(e) => e.preventDefault()}>

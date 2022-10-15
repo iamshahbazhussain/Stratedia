@@ -4,7 +4,7 @@ import React from 'react';
 import Email from './Component/Email/Email';
 
 
-const Signup = () => {
+const SignUp = () => {
   return (
     <>
       <Email />
@@ -12,4 +12,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default SignUp

@@ -6,15 +6,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 // imgs 
-import men from "../../../../Assets/men.jpg";
-import capgirl from "../../../../Assets/capgirl.jpg";
-import bijuman from "../../../../Assets/bijuman.jpg";
-import capmen from "../../../../Assets/capman.jpg";
-import girl from "../../../../Assets/girl.jpg";
-import partner from "../../../../Assets/partner.webp";
-import meta from "../../../../Assets/meta.png";
-import pin from "../../../../Assets/pin.png";
-import inlin from "../../../../Assets/in.png";
+import men from "../../../Assets/men.jpg";
+import capgirl from "../../../Assets/capgirl.jpg";
+import bijuman from "../../../Assets/bijuman.jpg";
+import capmen from "../../../Assets/capman.jpg";
+import girl from "../../../Assets/girl.jpg";
+import partner from "../../../Assets/partner.webp";
+import meta from "../../../Assets/meta.png";
+import pin from "../../../Assets/pin.png";
+import inlin from "../../../Assets/in.png";
 
 // css 
 import "./Carousel.scss";

@@ -1,0 +1,26 @@
+
+.Dashboard_main {
+
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .Dashboard_glass {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    background: var(--glass);
+    grid-template-columns: 15rem auto 0rem;
+    overflow: hidden;
+    @media screen and (max-width: 768px) {
+     
+        grid-template-columns: 1fr;
+      
+    }
+  }
+  
+  
+  

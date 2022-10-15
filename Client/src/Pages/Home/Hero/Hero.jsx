@@ -2,15 +2,15 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 // images 
-import box from "../../../../Assets/box.png";
-import set from "../../../../Assets/set.png";
-import cod from "../../../../Assets/cod.png";
-import i from "../../../../Assets/i.png";
-import line from "../../../../Assets/line.png";
-import tick from "../../../../Assets/tick.png";
-import mark from "../../../../Assets/mark.png";
-import prog from "../../../../Assets/prog.png";
-import add from "../../../../Assets/add.png";
+import box from "../../../Assets/box.png";
+import set from "../../../Assets/set.png";
+import cod from "../../../Assets/cod.png";
+import i from "../../../Assets/i.png";
+import line from "../../../Assets/line.png";
+import tick from "../../../Assets/tick.png";
+import mark from "../../../Assets/mark.png";
+import prog from "../../../Assets/prog.png";
+import add from "../../../Assets/add.png";
 
 // react icons 
 import { BsArrowRight } from "react-icons/bs";
