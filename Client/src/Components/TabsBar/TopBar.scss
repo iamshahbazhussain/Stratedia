@@ -1,11 +1,11 @@
 .topbar_container {
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid #DBDBDB;
+    border-bottom: 2px solid #dbdbdb;
     margin-top: 1rem;
     align-items: center;
     padding: 0 2rem;
-    font-family: 'Outfit', sans-serif;
+    font-family: "Outfit", sans-serif;
     width: -webkit-fill-available;
 
     .tabs_box {
@@ -15,14 +15,13 @@
         .tab {
             font-size: 20px;
             font-weight: 600;
-            color: #606C80;
+            color: #606c80;
             // color: #274C7E;
-            padding: 1.3rem .3rem;
+            padding: 1.3rem 0.3rem;
             // border-bottom: 2px solid #274C7E;
             margin-bottom: -2px;
             cursor: pointer;
         }
-
     }
 
     .action_box {
@@ -31,6 +30,8 @@
 
         .action {
             cursor: pointer;
+            font-size: 20px;
+            color: #00caef;
         }
     }
 }

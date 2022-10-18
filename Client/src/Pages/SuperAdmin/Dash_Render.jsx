@@ -1,21 +1,21 @@
-import React from 'react'
+import React from "react";
 
-import SideBar from '../../Components/SideBar/SideBar'
-import Dashboard from '../../Pages/SuperAdmin/Dashboard/Dashboard'
+///////////////////Components//////////////
+import SideBar from "../../Components/SideBar/SideBar";
+import Dashboard from "../../Pages/SuperAdmin/Dashboard/Dashboard";
 
 
+////////////////////////CSS
+import "./Dash_Render.scss";
 
-import { Route } from 'react-router-dom'
-
-import './Dash_Render.scss'
 
 const Dash_Render = () => {
   return (
     <div className="main_container">
-    <SideBar />
-<Dashboard/>
-</div>
-  )
-}
+      <SideBar />
+      <Dashboard />
+    </div>
+  );
+};
 
-export default Dash_Render
+export default Dash_Render;

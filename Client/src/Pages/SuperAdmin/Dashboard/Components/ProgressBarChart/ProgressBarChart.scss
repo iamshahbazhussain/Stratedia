@@ -4,14 +4,14 @@
     gap: 40px;
     justify-content: center;
     padding: 20px;
-    
+
     .title {
         font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
         font-style: normal;
         font-weight: 600;
         font-size: 14px;
         line-height: 19px;
-        color: #2F3743;
+        color: #2f3743;
         text-align: center;
     }
 
@@ -29,13 +29,11 @@
             gap: 13px;
 
             .MuiLinearProgress-bar {
-                background-color: #259E55 !important;
-
+                background-color: #259e55 !important;
             }
 
             .MuiLinearProgress-colorPrimary {
                 width: 365px !important;
-
             }
 
             .bar_title {
@@ -44,17 +42,16 @@
                 font-weight: 400;
                 font-size: 14px;
                 line-height: 110%;
-                color: #606C80;
+                color: #606c80;
             }
 
             .bar_percent {
-
                 font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
                 font-style: normal;
                 font-weight: 400;
                 font-size: 14px;
                 line-height: 110%;
-                color: #606C80;
+                color: #606c80;
             }
         }
     }

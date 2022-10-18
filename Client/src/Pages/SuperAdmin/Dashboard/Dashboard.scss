@@ -2,66 +2,89 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding-bottom: 50px;
     height: 100vh;
-    overflow: scroll;
+    overflow: hidden;
 
-    .cards_box {
+    .das_content {
+        width: 100%;
         display: flex;
-        justify-content: center;
-        gap: 14px;
-        padding: 20px;
-        padding-top: 46px;
-    }
+        flex-direction: column;
+        padding-bottom: 50px;
+        height: 100vh;
+        overflow: scroll;
 
-    // chart section css 
-    .charts_box {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        padding-top: 20px;
-        padding: 20px;
-
-        .donut_chart {
-            width: -webkit-fill-available;
-            height: 419px;
-            background: #FFFFFF;
-            border: 1px solid #DBDBDB;
-            box-shadow: 0px 8px 12px rgba(67, 73, 79, 0.12);
-            border-radius: 12px;
+        .cards_box {
             display: flex;
-            justify-content: space-around;
-            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            padding: 20px;
+            padding-top: 46px;
 
-            .centre_line {
-                width: 2px;
-                height: 289px;
-                background-color: #DBDBDB;
+           
+        }
+
+        // chart section css
+        .charts_box {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding-top: 20px;
+            padding: 20px;
+
+            .donut_chart {
+                width: -webkit-fill-available;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                background: #ffffff;
+                border: 1px solid #dbdbdb;
+                box-shadow: 0px 8px 12px rgba(67, 73, 79, 0.12);
+                border-radius: 12px;
+                display: flex;
+                border-left: 3px solid #00caef;
+                justify-content: space-around;
+                align-items: center;
+                transition: 0.5s ease-in-out;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+
+                .centre_line {
+                    width: 2px;
+                    height: 289px;
+                    background-color: #dbdbdb;
+                }
+            }
+
+            .progressbar_box {
+                box-sizing: border-box;
+                width: -webkit-fill-available;
+                border-left: 3px solid #00caef !important;
+                background: #ffffff;
+                border: 1px solid #dbdbdb;
+                box-shadow: 0px 8px 12px rgba(67, 73, 79, 0.12);
+                border-radius: 12px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                cursor: pointer;
+                transition: 0.5s ease-in-out;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+
+                .title {
+                    font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 19px;
+                    color: black;
+                    text-align: center;
+                }
             }
         }
-
-        .progressbar_box {
-            box-sizing: border-box;
-            width:-webkit-fill-available;
-            height: 420px;
-            background: #FFFFFF;
-            border: 1px solid #DBDBDB;
-            box-shadow: 0px 8px 12px rgba(67, 73, 79, 0.12);
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            
-        .title{
-            font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
-            font-style: normal;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 19px;
-            color: black;
-            text-align: center;
-        }
-        }
     }
-
 }

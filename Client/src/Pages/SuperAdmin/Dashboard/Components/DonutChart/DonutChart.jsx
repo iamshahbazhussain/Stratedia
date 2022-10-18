@@ -47,7 +47,7 @@ const DonutChart = ({ title, data }) => {
                     <div className='status'>
                         <div className='dot' style={{ backgroundColor: `${data.datasets[0]["backgroundColor"][0]}` }} > </div>
                         <div className='dot_title'>
-                           Likes
+                            Likes
                         </div>
                     </div>
                     <div className='status'>
