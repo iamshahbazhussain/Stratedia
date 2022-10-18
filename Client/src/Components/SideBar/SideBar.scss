@@ -1,0 +1,43 @@
+::-webkit-scrollbar{
+
+    display: none;
+}
+
+.sidebar_container {
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem;
+    padding-bottom: 1rem;
+    background-color: #FFFFFF;
+    border-right: 1px solid #DBDBDB;
+    box-shadow: 2px 4px 12px rgba(96, 108, 128, 0.12);
+    font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
+
+
+    .logo_box {
+        margin-left: -1rem;
+    }
+
+    .links_box {
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .link {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            cursor: pointer;
+            font-size: 20px;
+
+            p {
+                font-size: 15px;
+                margin: unset !important;
+            }
+        }
+    }
+}

@@ -7,7 +7,9 @@ import SignUp from "./Components/Register/SignUp/SignUp"
 import Password from "./Components/Register/SignUp/Component/Password/Password";
 import Account from "./Components/Register/SignUp/Component/Accounts/Account";
 import Home from "./Pages/Home/Home";
-import Dashboard from "./Pages/Dashboard/Dashboard";
+import Dashboard from "./Pages/SuperAdmin/Dash_Render";
+
+
 
 // css
 import "./App.scss";
