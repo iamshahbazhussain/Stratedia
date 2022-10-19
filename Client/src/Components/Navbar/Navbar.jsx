@@ -72,7 +72,7 @@ const Navbar = () => {
 
   return (
     <>
-
+    <div className="nav_back"></div>
       <div className="main_nav" style={changeNavbar ? { boxShadow: "0px 4px 4px rgb(29 140 242 / 8%)" } : {}}>
         <div className="nav_content">
           <div className="nav_text">
