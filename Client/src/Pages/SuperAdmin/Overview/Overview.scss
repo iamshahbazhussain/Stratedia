@@ -1,0 +1,145 @@
+.main_overview{
+    background: #f2f3f7;
+    width: 100%;
+    height: 100vh;
+    padding: 1rem;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 30px;
+
+   .tile_main{
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 2rem;
+    .rank{
+      display: flex;
+      flex-direction: column; 
+      gap: 2rem;
+
+.ran{
+    background: white;
+    font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 19px;
+    line-height: 45px;
+    padding-left: 20px;
+    color: black;
+}
+
+.cards{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+   
+}
+
+.line_chart{
+    width: 100%;
+    background-color: white;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+flex-direction: column;
+
+.title{
+    font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 19px;
+    line-height: 45px;
+    padding-left: 20px;
+    color: black;
+}
+
+    .recharts-wrapper{
+        width: 100% !important;
+        height: unset !important;
+    }
+
+}
+
+    }
+
+.goog{
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .ana{
+        background: white;
+        font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 19px;
+        line-height: 45px;
+        padding-left: 20px;
+        color: black;
+    }
+
+   
+
+.donut{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    .donutchart-innertext{
+        font-size: 30px !important;
+        font-weight: bold !important;
+    }
+    .donutchart{
+        width: 72% !important;
+        height: unset !important;
+    }
+}
+
+.cards{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+}
+
+    
+}
+
+   }
+
+   .tile_below{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4,1fr);
+    gap: 2rem;
+
+    .tile_1{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        .title{
+            background: white;
+            font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 19px;
+            line-height: 45px;
+            padding-left: 20px;
+            color: black;
+        }
+        
+    }
+
+   }
+
+}

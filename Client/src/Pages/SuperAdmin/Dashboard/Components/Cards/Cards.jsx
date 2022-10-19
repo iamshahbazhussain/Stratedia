@@ -16,11 +16,11 @@ const Cards = ({ title, result, total, detail, borderColor, icon }) => {
           {icon} {title}
         </div>
         <div className="result">
-          <b>{result}</b>{" "}
+          <b>{result}</b>
           {total && (
             <>
-              {" "}
-              <b>/</b> {total}{" "}
+              
+              <b>/</b> {total}
             </>
           )}
         </div>

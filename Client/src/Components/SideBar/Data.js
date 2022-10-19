@@ -1,9 +1,8 @@
 // Sidebar imports
 import { FaFacebookF } from 'react-icons/fa';
-import { FaInstagram } from 'react-icons/fa';
-import { FaTwitter } from 'react-icons/fa';
-import { FaGoogle } from 'react-icons/fa';
-import { FaFacebookMessenger } from 'react-icons/fa';
+import { FaLinkedinIn } from 'react-icons/fa';
+import { SiGoogleads } from 'react-icons/si';
+import { SiGoogleanalytics } from 'react-icons/si';
 import { TbReport } from 'react-icons/tb';
 import { BiSupport } from 'react-icons/bi';
 import { FiSettings } from 'react-icons/fi';
@@ -20,25 +19,22 @@ export const SidebarData = [
     heading: "Dashboard",
   },
   {
+    icon: SiGoogleanalytics,
+    heading: 'Google Analytics'
+  },
+  {
+    icon: SiGoogleads,
+    heading: 'Google Ad'
+  },
+  {
     icon: FaFacebookF,
-    heading: "Facebook",
+    heading: "Facebook Advertisment",
   },
   {
-    icon: FaInstagram,
-    heading: "Instagram",
+    icon: FaLinkedinIn,
+    heading: "Linkedin",
   },
-  {
-    icon: FaTwitter,
-    heading: 'Twitter'
-  },
-  {
-    icon: FaGoogle,
-    heading: 'Google'
-  },
-  {
-    icon: FaFacebookMessenger,
-    heading: 'Messages'
-  },
+
   {
     icon: TbReport,
     heading: 'Reports'
