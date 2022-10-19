@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useNavigate} from "react-router-dom"
 
 //////////////////Imgs////////////////
 import Logo from "../../Assets/logo.png";
@@ -18,6 +19,8 @@ import "./SideBar.scss";
 
 
 const SideBar = () => {
+    let Navigate = useNavigate()
+
     const [selected, setSelected] = useState(0);
 
     const [expanded, setExpaned] = useState(true);
@@ -46,7 +49,7 @@ const SideBar = () => {
                 animate={window.innerWidth <= 768 ? `${expanded}` : ""}
             >
                 {/* logo */}
-                <div className="logo">
+                <div className="logo" onClick={()=>Navigate("/")}>
                     <img src={Logo} alt="logo" />
                 </div>
 
