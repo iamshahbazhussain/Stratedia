@@ -15,7 +15,7 @@ import { MdDashboard } from 'react-icons/md';
 export const SidebarData = [
   {
     icon: MdDashboard,
-    heading: "Dashboard",
+    heading: "Overview",
   },
   {
     icon: SiGoogleanalytics,
