@@ -14,7 +14,7 @@
         overflow: scroll;
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 3rem;
         padding-bottom: 30px;
 
         .tile_main {
@@ -25,7 +25,7 @@
             .rank {
                 display: flex;
                 flex-direction: column;
-                gap: 2rem;
+                gap: 1rem;
 
                 .ran {
                     background: white;
@@ -35,9 +35,9 @@
                     font-size: 18px;
                     line-height: 19px;
                     line-height: 45px;
-                    padding-left: 20px;
+                    padding: 1rem;
                     color: black;
-                    border-radius: 8px;
+                    border-radius: 5px;
                 }
 
                 .cards {
@@ -55,7 +55,7 @@
                     justify-content: center;
                     align-items: center;
                     flex-direction: column;
-                    border-radius: 8px;
+                    border-radius: 5px;
                     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
                     .title {
@@ -79,7 +79,7 @@
             .goog {
                 display: flex;
                 flex-direction: column;
-                gap: 2rem;
+                gap: 1rem;
 
                 .ana {
                     background: white;
@@ -89,9 +89,9 @@
                     font-size: 18px;
                     line-height: 19px;
                     line-height: 45px;
-                    padding-left: 20px;
+                    padding: 1rem;
                     color: black;
-                    border-radius: 8px;
+                    border-radius: 5px;
                 }
 
                 .donut {
@@ -102,7 +102,7 @@
                     align-items: center;
                     padding-top: 30px;
                     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-                    border-radius: 8px;
+                    border-radius: 5px;
 
                     .donutchart-innertext {
                         font-size: 30px !important;
@@ -111,7 +111,7 @@
 
                     .donutchart {
                         width: 72% !important;
-                        height: unset !important;
+                        height: 320px !important;
                     }
                 }
 
@@ -133,7 +133,7 @@
             .tile_1 {
                 display: flex;
                 flex-direction: column;
-                gap: 2rem;
+                gap: 1rem;
 
                 .title {
                     background: white;
@@ -143,8 +143,8 @@
                     font-size: 18px;
                     line-height: 19px;
                     line-height: 45px;
-                    border-radius: 8px;
-                    padding-left: 20px;
+                    border-radius: 5px;
+                    padding: 1rem;
                     color: black;
                     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
                 }

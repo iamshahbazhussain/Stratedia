@@ -40,7 +40,7 @@ export const SidebarData = [
   },
   {
     icon: BiSupport,
-    heading: 'Support'
+    heading: 'Chat'
   },
   
 ];
