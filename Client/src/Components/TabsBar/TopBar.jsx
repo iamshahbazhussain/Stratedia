@@ -1,7 +1,12 @@
 import React from "react";
 
+///////////////Ant Design//////////////////
+import { Avatar } from 'antd';
+import 'antd/dist/antd.css';
+
 ///////////////////ICONS///////////////////////
-import { AiOutlineUser } from "react-icons/ai";
+import { FiSettings } from 'react-icons/fi';
+import { AiOutlineLogout } from "react-icons/ai";
 import { BsFillBellFill } from "react-icons/bs";
 
 
@@ -35,10 +40,24 @@ const TopBar = ({ tabs, selectedTab, setSelectedTab }) => {
         </div>
         <div className="action_box">
           <div className="action">
-            <AiOutlineUser />
+            <abbr title="Logout">
+              <AiOutlineLogout />
+            </abbr>
           </div>
           <div className="action">
-            <BsFillBellFill />
+            <abbr title="Settings">
+              <FiSettings />
+            </abbr>
+          </div>
+          <div className="action">
+            <abbr title="Notification">
+              <BsFillBellFill />
+            </abbr>
+          </div>
+          <div className="action">
+            <abbr title="Profile">
+              <Avatar size={30} src='https://joeschmoe.io/api/v1/random'/>
+            </abbr>
           </div>
         </div>
       </div>

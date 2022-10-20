@@ -5,7 +5,6 @@ import { SiGoogleads } from 'react-icons/si';
 import { SiGoogleanalytics } from 'react-icons/si';
 import { TbReport } from 'react-icons/tb';
 import { BiSupport } from 'react-icons/bi';
-import { FiSettings } from 'react-icons/fi';
 import { MdDashboard } from 'react-icons/md';
 
 
@@ -43,10 +42,7 @@ export const SidebarData = [
     icon: BiSupport,
     heading: 'Support'
   },
-  {
-    icon: FiSettings,
-    heading: 'Settings'
-  },
+  
 ];
 
 

@@ -27,11 +27,23 @@
     .action_box {
         display: flex;
         gap: 20px;
+        align-items: center;
+        justify-content: center;
 
         .action {
-            cursor: pointer;
-            font-size: 20px;
-            color: #00caef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            abbr{
+                cursor: pointer;
+                font-size: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #00caef;
+            }
+
         }
     }
 }

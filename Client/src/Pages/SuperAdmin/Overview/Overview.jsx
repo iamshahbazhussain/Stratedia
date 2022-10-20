@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 /////////////////Component////////////////
 import Card from "./Component/Card/Card";
+import Topbar from '../../../Components/TabsBar/TopBar'
 
 ///////////////////////Donut Chart//////////////////
 import DonutChart from "react-donut-chart";
@@ -19,6 +20,9 @@ import {
 
 ///////////////////CSS/////////////////
 import "./Overview.scss";
+
+// TopBar Tabs :
+let Tabs = ["Dashboard"];
 
 
 ///////////////////////////Line Chart Data/////////////////
@@ -137,147 +141,162 @@ const reactDonutChartOnMouseEnter = (item) => {
 
 
 const Overview = () => {
+
+    ////////////////Topbar State/////////////
+    let [selectedTab, setSelectedTab] = useState("Dashboard");
+
     return (
         <div className="main_overview">
-            <div className="tile_main">
-                <div className="rank">
-                    <div className="ran">Rankings</div>
-                    <div className="cards">
-                        <Card
-                            title={"10"}
-                            para={"Google Rankings"}
-                            num={"2 %"}
-                            borderColor="#00caef"
-                            color="#00caef"
-                        />
-                        <Card
-                            title={"4"}
-                            para={"Google Change"}
-                            num={"77 %"}
-                            borderColor="Red"
-                            color="red"
-                        />
-                    </div>
-
-                    <div className="line_chart">
-                        <div className="title">Google Ranking</div>
-
-                        <LineChart
-                            width={500}
-                            height={300}
-                            data={data}
-                            margin={{
-                                top: 5,
-                                right: 30,
-                                left: 20,
-                                bottom: 5,
-                            }}
-                        >
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="name" />
-                            <YAxis />
-                            <Tooltip />
-                            <Legend />
-                            <Line
-                                type="monotone"
-                                dataKey="pv"
-                                stroke="orange"
-                                activeDot={{ r: 8 }}
-                            />
-                        </LineChart>
-                    </div>
-                </div>
-                <div className="goog">
-                    <div className="ana">Google Analytics</div>
-                    <div className="donut">
-                        <DonutChart
-                            width={600}
-                            onMouseEnter={(item) => reactDonutChartOnMouseEnter(item)}
-                            strokeColor={reactDonutChartStrokeColor}
-                            data={reactDonutChartdata}
-                            colors={reactDonutChartBackgroundColor}
-                            innerRadius={reactDonutChartInnerRadius}
-                            selectedOffset={reactDonutChartSelectedOffset}
-                            onClick={(item, toggled) =>
-                                reactDonutChartHandleClick(item, toggled)
-                            }
-                        />
-                    </div>
-                    <div className="cards">
-                        <Card
-                            title={"3,306"}
-                            para={"Goal Completion"}
-                            num={"56 %"}
-                            borderColor="orange"
-                            color="orange"
-                        />
-                        <Card
-                            title={"10"}
-                            para={"Google Rankings"}
-                            num={"2 %"}
-                            borderColor="#00caef"
-                            color="#00caef"
-                        />
-                    </div>
-                </div>
+            <div className="top_bar">
+                <Topbar
+                    tabs={Tabs}
+                    selectedTab={selectedTab}
+                    setSelectedTab={setSelectedTab}
+                />
             </div>
+            <div className="over_content">
 
-            <div className="tile_below">
-                <div className="tile_1">
-                    <div className="title">Facebook</div>
-                    <Card
-                        title={"1,105"}
-                        para={"Facebook Total Likes"}
-                        num={"42 %"}
-                        borderColor="skyblue"
-                        color="skyblue"
-                    />
-                </div>
-                <div className="tile_1">
-                    <div className="title">Backlinks</div>
-                    <Card title={"691k"} para={"Total Backlinks"} num={"13 %"} />
-                </div>
-                <div className="tile_1">
-                    <div className="title">Google Ads</div>
-                    <Card
-                        chart={
-                            <LineChart width={200} height={50} data={data}>
-                                <Line
-                                    type="monotone"
-                                    dataKey="pv"
-                                    stroke="red"
-                                    strokeWidth={2}
-                                />
-                            </LineChart>
-                        }
-                        title={"$6,596.00"}
-                        para={"Google Ads Cost"}
-                        num={"13 %"}
-                        borderColor="Red"
-                        color="red"
-                    />
-                </div>
-                <div className="tile_1">
-                    <div className="title">Google Search Console</div>
-                    <Card
-                        chart={
-                            <LineChart width={200} height={50} data={data}>
+                <div className="tile_main">
+                    <div className="rank">
+                        <div className="ran">Rankings</div>
+                        <div className="cards">
+                            <Card
+                                title={"10"}
+                                para={"Google Rankings"}
+                                num={"2 %"}
+                                borderColor="#00caef"
+                                color="#00caef"
+                            />
+                            <Card
+                                title={"4"}
+                                para={"Google Change"}
+                                num={"77 %"}
+                                borderColor="Red"
+                                color="red"
+                            />
+                        </div>
+
+                        <div className="line_chart">
+                            <div className="title">Google Ranking</div>
+
+                            <LineChart
+                                width={500}
+                                height={300}
+                                data={data}
+                                margin={{
+                                    top: 5,
+                                    right: 30,
+                                    left: 20,
+                                    bottom: 5,
+                                }}
+                            >
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis dataKey="name" />
+                                <YAxis />
+                                <Tooltip />
+                                <Legend />
                                 <Line
                                     type="monotone"
                                     dataKey="pv"
                                     stroke="orange"
-                                    strokeWidth={2}
+                                    activeDot={{ r: 8 }}
                                 />
                             </LineChart>
-                        }
-                        title={"262 k"}
-                        para={"Impressions"}
-                        num={"92 %"}
-                        borderColor="orange"
-                        color="orange"
-                    />
+                        </div>
+                    </div>
+                    <div className="goog">
+                        <div className="ana">Google Analytics</div>
+                        <div className="donut">
+                            <DonutChart
+                                width={600}
+                                onMouseEnter={(item) => reactDonutChartOnMouseEnter(item)}
+                                strokeColor={reactDonutChartStrokeColor}
+                                data={reactDonutChartdata}
+                                colors={reactDonutChartBackgroundColor}
+                                innerRadius={reactDonutChartInnerRadius}
+                                selectedOffset={reactDonutChartSelectedOffset}
+                                onClick={(item, toggled) =>
+                                    reactDonutChartHandleClick(item, toggled)
+                                }
+                            />
+                        </div>
+                        <div className="cards">
+                            <Card
+                                title={"3,306"}
+                                para={"Goal Completion"}
+                                num={"56 %"}
+                                borderColor="orange"
+                                color="orange"
+                            />
+                            <Card
+                                title={"10"}
+                                para={"Google Rankings"}
+                                num={"2 %"}
+                                borderColor="#00caef"
+                                color="#00caef"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="tile_below">
+                    <div className="tile_1">
+                        <div className="title">Facebook</div>
+                        <Card
+                            title={"1,105"}
+                            para={"Facebook Total Likes"}
+                            num={"42 %"}
+                            borderColor="skyblue"
+                            color="skyblue"
+                        />
+                    </div>
+                    <div className="tile_1">
+                        <div className="title">Backlinks</div>
+                        <Card title={"691k"} para={"Total Backlinks"} num={"13 %"} />
+                    </div>
+                    <div className="tile_1">
+                        <div className="title">Google Ads</div>
+                        <Card
+                            chart={
+                                <LineChart width={200} height={50} data={data}>
+                                    <Line
+                                        type="monotone"
+                                        dataKey="pv"
+                                        stroke="red"
+                                        strokeWidth={2}
+                                    />
+                                </LineChart>
+                            }
+                            title={"$6,596.00"}
+                            para={"Google Ads Cost"}
+                            num={"13 %"}
+                            borderColor="Red"
+                            color="red"
+                        />
+                    </div>
+                    <div className="tile_1">
+                        <div className="title">Google Search Console</div>
+                        <Card
+                            chart={
+                                <LineChart width={200} height={50} data={data}>
+                                    <Line
+                                        type="monotone"
+                                        dataKey="pv"
+                                        stroke="orange"
+                                        strokeWidth={2}
+                                    />
+                                </LineChart>
+                            }
+                            title={"262 k"}
+                            para={"Impressions"}
+                            num={"92 %"}
+                            borderColor="orange"
+                            color="orange"
+                        />
+                    </div>
                 </div>
             </div>
+
         </div>
     );
 };
