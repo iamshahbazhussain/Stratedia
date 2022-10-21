@@ -19,7 +19,7 @@ import Social from './Social';
 export const SidebarData = [
   {
     icon: MdDashboard,
-    heading: "Dashboard",
+    heading: "Overview",
   },
   {
     icon: SiGoogleanalytics,
@@ -56,7 +56,7 @@ export const SidebarData = [
   },
   {
     icon: BiSupport,
-    heading: 'Support'
+    heading: 'Chat'
   },
   
 ];

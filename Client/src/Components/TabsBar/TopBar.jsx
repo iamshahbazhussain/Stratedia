@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 ///////////////Ant Design//////////////////
 import { Avatar } from 'antd';
@@ -16,6 +17,12 @@ import "./TopBar.scss";
 
 
 const TopBar = ({ tabs, selectedTab, setSelectedTab }) => {
+  let Navigate = useNavigate()
+
+  const logOut = () => {
+    Navigate("/")
+  }
+
   return (
     <>
       <div className="topbar_container">
@@ -40,7 +47,7 @@ const TopBar = ({ tabs, selectedTab, setSelectedTab }) => {
         </div>
         <div className="action_box">
           <div className="action">
-            <abbr title="Logout">
+            <abbr title="Logout" onClick={logOut}>
               <AiOutlineLogout />
             </abbr>
           </div>
@@ -56,7 +63,7 @@ const TopBar = ({ tabs, selectedTab, setSelectedTab }) => {
           </div>
           <div className="action">
             <abbr title="Profile">
-              <Avatar size={30} src='https://joeschmoe.io/api/v1/random'/>
+              <Avatar size={30} src='https://joeschmoe.io/api/v1/random' />
             </abbr>
           </div>
         </div>

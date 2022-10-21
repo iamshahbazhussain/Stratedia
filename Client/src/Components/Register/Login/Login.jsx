@@ -17,6 +17,10 @@ import './Login.scss';
 const Login = () => {
     let Navigate = useNavigate()
 
+    const login = () => {
+        Navigate("/dashboard")
+    }
+
     return (
         <>
             <Navbar />
@@ -33,7 +37,7 @@ const Login = () => {
                             <label>Password</label>
                             <input type='password' />
                         </div>
-                        <button>Log in</button>
+                        <button onClick={login}>Log in</button>
                         <div className="agree">
                             <div className="buffer">I agree to <span>Terms of Service</span></div>
                             <div className="already" onClick={() => Navigate("/register")}>Don't have an account?</div>
