@@ -6,7 +6,11 @@ import { SiGoogleanalytics } from 'react-icons/si';
 import { TbReport } from 'react-icons/tb';
 import { BiSupport } from 'react-icons/bi';
 import { MdDashboard } from 'react-icons/md';
+import { FaMoneyBillAlt } from 'react-icons/fa';
+import { MdWork } from 'react-icons/md';
 
+///////////////Component/////////////
+import Social from './Social';
 
 
 
@@ -26,12 +30,24 @@ export const SidebarData = [
     heading: 'Google Ad'
   },
   {
+    heading: "",
+    icon: Social,
+  },
+  {
     icon: FaFacebookF,
-    heading: "Facebook Advertisment",
+    heading: "Facebook Ads",
   },
   {
     icon: FaLinkedinIn,
-    heading: "Linkedin",
+    heading: "Linkedin Ads",
+  },
+  {
+    icon: FaMoneyBillAlt,
+    heading: "Billing",
+  },
+  {
+    icon: MdWork,
+    heading: "Work Requests",
   },
 
   {

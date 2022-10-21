@@ -275,7 +275,7 @@ const Overview = () => {
                         />
                     </div>
                     <div className="tile_1">
-                        <div className="title">Google Search Console</div>
+                        <div className="title">Search Console</div>
                         <Card
                             chart={
                                 <LineChart width={200} height={50} data={data}>
