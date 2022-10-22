@@ -27,7 +27,7 @@ export const SidebarData = [
   },
   {
     icon: SiGoogleads,
-    heading: 'Google Ad'
+    heading: 'Google Ads'
   },
   {
     heading: "",
