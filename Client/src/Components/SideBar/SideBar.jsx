@@ -23,7 +23,7 @@ const SideBar = () => {
 
     const [selected, setSelected] = useState(0);
 
-    const [expanded, setExpaned] = useState(true);
+    const [expanded, setExpaned] = useState(false);
 
     const sidebarVariants = {
         true: {
@@ -38,7 +38,7 @@ const SideBar = () => {
         <>
             <div
                 className="bars"
-                style={expanded ? { left: "280px" } : { left: "5%" }}
+                // style={expanded ? { left: "280px" } : { left: "5%" }}
                 onClick={() => setExpaned(!expanded)}
             >
                 <UilBars />
@@ -46,7 +46,7 @@ const SideBar = () => {
             <motion.div
                 className="sidebar"
                 variants={sidebarVariants}
-                animate={window.innerWidth <= 768 ? `${expanded}` : ""}
+                animate={window.innerWidth <= 1200 ? `${expanded}` : ""}
             >
                 {/* logo */}
                 <div className="logo" onClick={()=>Navigate("/")}>

@@ -14,7 +14,7 @@
     font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
     overflow-y: scroll;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1200px) {
         position: fixed;
         z-index: 9;
         background: white;
@@ -27,17 +27,25 @@
 .bars {
     display: none;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1200px) {
         display: flex;
         position: fixed;
         top: 2rem;
-        left: 60%;
-        background: #00caef;
+        right: 200px;
         padding: 10px;
-        border-radius: 10px;
+        border-radius: 50%;
         z-index: 9;
         color: white;
+        background-color: #00caef;
+
     }
+
+    @media screen and (max-width: 420px) {
+    
+    right: 150px;    
+
+         }
+
 }
 
 .logo {
@@ -80,7 +88,7 @@
         bottom: 2.3rem;
         width: 100%;
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 1200px) {
             position: relative;
             margin-top: 6rem;
         }
@@ -101,7 +109,7 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
     .close {
         left: -60%;
     }
