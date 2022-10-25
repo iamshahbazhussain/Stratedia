@@ -147,9 +147,10 @@
           margin-top: 30px;
           margin-bottom: 20px;
 
-@media (max-width: 500px) {
-         margin-right: unset;
+          @media (max-width: 500px) {
+            margin-right: unset;
           }
+
           &::before {
             content: "";
             position: absolute;
@@ -176,6 +177,7 @@
         }
 
         .google_btn {
+          background-color: transparent;
           border-radius: 4px;
           height: 50px;
           width: 360px;
