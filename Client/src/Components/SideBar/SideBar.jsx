@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 
 ///////////////////Icons////////////// 
 import { UilBars } from "@iconscout/react-unicons";
+import { MdClose } from 'react-icons/md';
 
 ////////////////////CSS//////////////////
 import "./SideBar.scss";
@@ -39,7 +40,7 @@ const SideBar = () => {
             <div
                 className="bars"
                 // style={expanded ? { left: "280px" } : { left: "5%" }}
-                onClick={() => setExpaned(!expanded)}
+                onClick={() => setExpaned(true)}
             >
                 <UilBars />
             </div>
@@ -49,8 +50,9 @@ const SideBar = () => {
                 animate={window.innerWidth <= 1200 ? `${expanded}` : ""}
             >
                 {/* logo */}
-                <div className="logo" onClick={()=>Navigate("/")}>
-                    <img src={Logo} alt="logo" />
+                <div className="logo">
+                    <img src={Logo} alt="logo"  onClick={()=>Navigate("/")} />
+                    <MdClose className="close" onClick={() => setExpaned(false)} />
                 </div>
 
                 <div className="menu">

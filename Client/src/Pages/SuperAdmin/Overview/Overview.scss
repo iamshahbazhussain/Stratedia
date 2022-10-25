@@ -108,6 +108,13 @@
         
                     }
 
+                    .recharts-cartesian-axis-ticks{
+                        font-size: 9px;
+                    }
+
+                    .recharts-cartesian-axis{
+                        font-size: 9px;
+                    }
                     
                     .recharts-legend-wrapper{
                         width: 100% !important;
@@ -188,7 +195,17 @@
                     .donutchart-innertext {
                         font-size: 30px !important;
                         font-weight: bold !important;
+
+                        @media screen and (max-width: 990px) {
+                          font-size: 20px !important;
+                
+                            }
+                        
                     }
+
+.donutchart-legend{
+    font-size: 10px;
+}
 
                     .donutchart {
                         width: 72% !important;

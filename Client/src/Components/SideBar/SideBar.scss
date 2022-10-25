@@ -18,7 +18,7 @@
         position: fixed;
         z-index: 9;
         background: white;
-        width: 250px;
+        width: 100%;
         padding-right: 1rem;
         height: 100%;
     }
@@ -31,7 +31,7 @@
         display: flex;
         position: fixed;
         top: 2rem;
-        right: 200px;
+        left: 20px;
         padding: 10px;
         border-radius: 50%;
         z-index: 9;
@@ -40,24 +40,26 @@
 
     }
 
-    @media screen and (max-width: 420px) {
-    
-    right: 150px;    
-
-         }
+   
 
 }
 
 .logo {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin: 2rem;
     cursor: pointer;
 
     img {
         object-fit: cover;
     }
+
+    .close{
+        font-size: 25px;
+        cursor: pointer;
+    }
+
 }
 
 /* menu */
