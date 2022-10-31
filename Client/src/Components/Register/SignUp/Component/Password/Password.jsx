@@ -21,7 +21,11 @@ const Password = () => {
             <div className="title">Set up your account</div>
             <div className="para">Fill in your profile details</div>
             <div className="input_group">
-              <label>Full Name</label>
+              <label>First Name</label>
+              <input type='email' />
+            </div>
+            <div className="input_group">
+              <label>Last Name</label>
               <input type='email' />
             </div>
             <div className="input_group">
@@ -29,7 +33,7 @@ const Password = () => {
               <input type='password' />
             </div>
             <div className="input_group">
-              <label>Account Name</label>
+              <label>Confirm Password</label>
               <input type='text' />
             </div>
             <div className="already">
