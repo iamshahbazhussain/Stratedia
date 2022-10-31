@@ -11,6 +11,7 @@ import { MdWork } from 'react-icons/md';
 
 ///////////////Component/////////////
 import Social from './Social';
+import Ads from './Adds';
 
 
 
@@ -27,19 +28,15 @@ export const SidebarData = [
   },
   {
     icon: SiGoogleads,
-    heading: 'Google Ads'
+    heading: 'SEO'
+  },
+  {
+    icon: Ads,
+    heading: ''
   },
   {
     heading: "",
     icon: Social,
-  },
-  {
-    icon: FaFacebookF,
-    heading: "Facebook Ads",
-  },
-  {
-    icon: FaLinkedinIn,
-    heading: "Linkedin Ads",
   },
   {
     icon: FaMoneyBillAlt,

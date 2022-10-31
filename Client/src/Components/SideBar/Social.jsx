@@ -17,52 +17,50 @@ const { Panel } = Collapse;
 
 const Social = () => {
 
- 
 
 
-  return (
-    <>
-    <div className="main_so">
-    <MdGroups className='so_icon'/>
-       <Collapse>
-        <Panel  header='Social' key="1">
-            
-<div className="icon">
-    <FaFacebookF/>
-    Facebook
-</div>
-<div className="icon">
-    <FaInstagram/>
-    Instagram
-</div>
-<div className="icon">
-    <FaLinkedinIn/>
-    Linkedin
-</div>
-<div className="icon">
-    <FaYoutube/>
-    Youtube
-</div>
-  
-<div className="icon">
-    <FaTwitter/>
-    Twitter
-</div>
-<div className="icon">
-    <FaPinterest/>
-    Pinterest
-</div>
-<div className="icon">
-    <FaTiktok/>
-    Tiktok
-</div>
-  
-        </Panel>
-       
-      </Collapse>
-    </div>
-    </>
-  )
+
+    return (
+        <>
+            <div className="main_so">
+                <MdGroups className='so_icon' />
+                <Collapse>
+                    <Panel header='Social' key="1">
+
+                        <div className="icon">
+                            <FaFacebookF />
+                            Facebook
+                        </div>
+                        <div className="icon">
+                            <FaInstagram />
+                            Instagram
+                        </div>
+                        <div className="icon">
+                            <FaLinkedinIn />
+                            Linkedin
+                        </div>
+                        <div className="icon">
+                            <FaYoutube />
+                            Youtube
+                        </div>
+
+                        <div className="icon">
+                            <FaTwitter />
+                            Twitter
+                        </div>
+                        <div className="icon">
+                            <FaPinterest />
+                            Pinterest
+                        </div>
+                        <div className="icon">
+                            <FaTiktok />
+                            Tiktok
+                        </div>
+                    </Panel>
+                </Collapse>
+            </div>
+        </>
+    )
 }
 
 export default Social

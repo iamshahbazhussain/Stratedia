@@ -1,44 +1,45 @@
-.main_so{
-width: 100%;
-display: flex;
-justify-content: center;
-gap: 1rem;
+.main_so {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 
-.so_icon{
-    font-size: 25px;
-}
+    .so_icon {
+        font-size: 25px;
+    }
 
-    .ant-collapse{
+    .ant-collapse {
         width: 100%;
         box-sizing: border-box;
-         background-color: unset; 
-         border:unset; 
-         border-bottom: unset; 
-         border-radius: unset;
+        background-color: unset;
+        border: unset;
+        border-bottom: unset;
+        border-radius: unset;
     }
-    .ant-collapse-item{
+
+    .ant-collapse-item {
         border-bottom: unset;
     }
 
-    .ant-collapse-header{
-flex-direction: row-reverse;
-padding: unset !important;
+    .ant-collapse-header {
+        flex-direction: row-reverse;
+        padding: unset !important;
 
-&:focus{
-    color: #00caef;
+        &:focus {
+            color: #00caef;
 
-}
+        }
 
     }
 
-    .ant-collapse-content{
+    .ant-collapse-content {
         border-radius: unset;
         color: unset;
         background: unset;
     }
 
 
-    .icon{
+    .icon {
         display: flex;
         gap: 1rem;
         font-size: 15px;
@@ -46,11 +47,10 @@ padding: unset !important;
         padding-bottom: 16px;
         color: black;
 
-&:hover{
-   color: #00caef;
-}
+        &:hover {
+            color: #00caef;
+        }
 
     }
 
 }
-
