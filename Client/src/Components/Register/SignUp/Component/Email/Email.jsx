@@ -70,9 +70,23 @@ const Email = ({ setStepper, enterData, setEnterData }) => {
     if (response.credential) {
       let userObject = JWTDECODE(response.credential)
       console.log(userObject);
-        let res = await checkEmailAPI(userObject.email, true)
-        if (res.error != null) {
-          toast.error(res.error, {
+      let res = await checkEmailAPI(userObject.email, true)
+      if (res.error != null) {
+        toast.error(res.error, {
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        if (res.data.registered == true) {
+          console.log("-----------------", res.data);
+          localStorage.setItem("token", res.data.token)
+          toast.success("Login Success", {
             position: "top-right",
             autoClose: 4000,
             hideProgressBar: false,
@@ -82,21 +96,21 @@ const Email = ({ setStepper, enterData, setEnterData }) => {
             progress: undefined,
             theme: "light",
           });
+          setTimeout(() => {
+            window.location.href = "/dashboard"
+          }, 2500);
         } else {
-          if (res.data.registered == true) {
-
-          } else {
-            setEnterData((preVal) => {
-              return {
-                ...preVal,
-                email: response.email,
-                firstName: userObject.given_name,
-                lastName: userObject.family_name,
-              }
-            })
-            setStepper(1);
-          }
+          setEnterData((preVal) => {
+            return {
+              ...preVal,
+              email: response.email,
+              firstName: userObject.given_name,
+              lastName: userObject.family_name,
+            }
+          })
+          setStepper(1);
         }
+      }
     }
   }
 

@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 
 // Picture :
@@ -19,21 +20,20 @@ import './SignUp.scss'
 
 const SignUp = () => {
   let Navigate = useNavigate()
+  let location = useLocation()
+
+  let isGoogleRegister = location.state?.userData ? location.state.userData : null
 
   const [stepper, setStepper] = useState(0)
   const [enterData, setEnterData] = useState({
-    email:'',
-    firstName:'',
-    lastName:'',
-    password:'',
-    cPassword:'',
-    facebook:null,
-    google:null
+    email: '',
+    firstName: '',
+    lastName: '',
+    password: '',
+    cPassword: '',
+    facebook: null,
+    google: null
   })
-
-  const register = ()=>{
-    
-  }
 
   const currentStep = () => {
     switch (stepper) {
@@ -41,13 +41,25 @@ const SignUp = () => {
         return (<Email enterData={enterData} setEnterData={setEnterData} setStepper={setStepper} />);
         break;
       case 1:
-        return (<Password register={register} enterData={enterData} setEnterData={setEnterData} setStepper={setStepper} />);
+        return (<Password enterData={enterData} setEnterData={setEnterData} setStepper={setStepper} />);
         break;
       default:
         return (<Email enterData={enterData} setEnterData={setEnterData} setStepper={setStepper} />);
         break;
     }
   }
+
+  useEffect(() => {
+    if (isGoogleRegister) {
+      setEnterData((preVal) => {
+        return {
+          ...preVal,
+          ...isGoogleRegister
+        }
+      })
+      setStepper(1);
+    }
+  }, [])
 
   return (
     <>

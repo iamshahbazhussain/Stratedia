@@ -25,23 +25,24 @@ Router.get("/", Authrization, async (req, res) => {
     }
 })
 
-Router.get("/login", Authrization, async (req, res, next) => {
+Router.post("/login", async (req, res, next) => {
     let { email, password } = req.body;
     try {
-        let findUser = UserModal.findOne({ email }).select("password")
+        let findUser = await UserModal.findOne({ email: email }).select("+password")
         if (findUser) {
             let deHash = await Bcrypt.compareSync(password, findUser.password)
             if (!deHash) {
-                return next(
-                    new AppError("Wrong Password", 400)
-                );
+                res.status(402).json({
+                    message: "Wrong credentials"
+                })
+                return
             }
             let token = await JWT.sign({ data: { email: findUser.email, _id: findUser._id } }, process.env.JWT_SECRET)
             res.status(200).json({
                 message: "Login Success",
                 token,
                 data: {
-                    ...findUser,
+                    ...findUser._doc,
                     password: undefined
                 }
             });
@@ -93,7 +94,7 @@ Router.post("/check", async (req, res) => {
                     registered: true,
                     token,
                     data: {
-                        ...findUser,
+                        ...findUser._doc,
                         password: undefined
                     }
                 });

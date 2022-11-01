@@ -2,9 +2,11 @@
   // width: -webkit-fill-available;
   display: flex;
   flex-direction: column;
+
   @media (max-width: 500px) {
-     width: 80%;
-    }
+    width: 80%;
+  }
+
   .title {
     font-size: 24px;
     font-weight: bold;
@@ -39,7 +41,7 @@
       width: 100%;
     }
 
-    .error{
+    .error {
       color: red;
       font-size: .7rem;
       margin: 0 !important;
@@ -156,7 +158,8 @@
     border-width: 1px;
     border-style: solid;
     border-color: rgb(66, 133, 244);
-margin-bottom: 1rem;
+    margin-bottom: 1rem;
+
     @media (max-width: 500px) {
       width: 100%;
     }
