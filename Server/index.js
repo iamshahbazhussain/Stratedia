@@ -26,7 +26,7 @@ app.get("/health-check", (req, res) => {
     res.status("200").send("server is up and running");
 });
 
-app.use("/api", AuthRoute)
+app.use("/api/auth", AuthRoute)
 
 app.all("*", (req, res, next) =>
     next(new AppError(`can't find ${req.originalUrl} on this server`, 404))

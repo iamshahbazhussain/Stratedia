@@ -19,7 +19,7 @@ Router.get("/", Authrization, async (req, res) => {
         })
     } catch (err) {
         res.status(500).json({
-            message: "Eror at Getting UserData",
+            message: "Error at Getting UserData",
             err
         })
     }
@@ -52,7 +52,7 @@ Router.get("/login", Authrization, async (req, res, next) => {
         }
     } catch (err) {
         res.status(500).json({
-            message: "Eror at Getting UserData",
+            message: "Error at Getting UserData",
             err
         })
     }
@@ -60,26 +60,58 @@ Router.get("/login", Authrization, async (req, res, next) => {
 Router.post("/register", async (req, res) => {
     let { email, firstName, lastName, googleToken, facebookToken, password } = req.body;
     try {
-        if (googleToken || facebookToken) {
+        const hasedPass = await Bcrypt.hashSync(password, saltRound)
+        const userData = new UserModal({
+            email,
+            firstName,
+            lastName,
+            password: hasedPass
+        });
+        await userData.save();
 
-        } else {
-            const hasedPass = await Bcrypt.hashSync(password, saltRound)
-            const userData = new UserModal({
-                email,
-                firstName,
-                lastName,
-                password: hasedPass
-            });
-            await userData.save();
-
-            res.status(200).json({
-                message: "UserRegister Success",
-            })
-        }
+        res.status(200).json({
+            message: "UserRegister Success",
+        })
 
     } catch (err) {
         res.status(500).json({
-            message: "Eror at Getting UserData",
+            message: "Error at Registering User",
+            err
+        })
+    }
+})
+
+Router.post("/check", async (req, res) => {
+    let { email, googleContinue } = req.body;
+    try {
+        let findUser = await UserModal.findOne({ email: email })
+        if (findUser) {
+            if (googleContinue) {
+                let token = await JWT.sign({ data: { email: findUser.email, _id: findUser._id } }, process.env.JWT_SECRET)
+                res.status(200).json({
+                    message: "Login Success",
+                    registered: true,
+                    token,
+                    data: {
+                        ...findUser,
+                        password: undefined
+                    }
+                });
+            } else {
+                res.status(200).json({
+                    message: "User already Exist , please login",
+                    registered: true
+                })
+            }
+        } else {
+            res.status(200).json({
+                message: "User not Found",
+                registered: false
+            })
+        }
+    } catch (err) {
+        res.status(500).json({
+            message: "Error at Checking UserData",
             err
         })
     }

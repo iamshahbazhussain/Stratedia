@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { GoogleLogin } from 'react-google-login';
+// import { GoogleLogin } from 'react-google-login';
 
 // ASSETS :
 import buffer from '../../../Assets/buffer.svg'
@@ -55,7 +55,7 @@ const Login = () => {
                         </div>
                         <div className="or">OR</div>
 
-                        <GoogleLogin
+                        {/* <GoogleLogin
                             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                             buttonText="Login"
                             render={renderProps => (
@@ -64,9 +64,9 @@ const Login = () => {
                             onSuccess={handleSuccessGoogleLogin}
                             onFailure={handleFailGoogleLogin}
                             cookiePolicy={'single_host_origin'}
-                        />
+                        /> */}
 
-                        <GoogleLogin
+                        {/* <GoogleLogin
                             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                             buttonText="Login"
                             render={renderProps => (
@@ -75,7 +75,7 @@ const Login = () => {
                             onSuccess={handleSuccessGoogleLogin}
                             onFailure={handleFailGoogleLogin}
                             cookiePolicy={'single_host_origin'}
-                        />
+                        /> */}
 
                     </div>
                 </div>

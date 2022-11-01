@@ -26,8 +26,14 @@ const SignUp = () => {
     firstName:'',
     lastName:'',
     password:'',
-    cPassword:''
+    cPassword:'',
+    facebook:null,
+    google:null
   })
+
+  const register = ()=>{
+    
+  }
 
   const currentStep = () => {
     switch (stepper) {
@@ -35,7 +41,7 @@ const SignUp = () => {
         return (<Email enterData={enterData} setEnterData={setEnterData} setStepper={setStepper} />);
         break;
       case 1:
-        return (<Password enterData={enterData} setEnterData={setEnterData} setStepper={setStepper} />);
+        return (<Password register={register} enterData={enterData} setEnterData={setEnterData} setStepper={setStepper} />);
         break;
       default:
         return (<Email enterData={enterData} setEnterData={setEnterData} setStepper={setStepper} />);

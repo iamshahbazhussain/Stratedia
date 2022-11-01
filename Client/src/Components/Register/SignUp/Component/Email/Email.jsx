@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import { GoogleLogin } from 'react-google-login';
 
 // icons 
 import { BsGoogle, BsFacebook } from 'react-icons/bs';
 
+import { checkEmailAPI } from '../../../../../API/register';
+import JWTDECODE from "jwt-decode";
+import { toast } from "react-toastify"
+
 // Css 
 import './Email.scss';
+import { useState } from 'react';
 
 
 
@@ -15,22 +18,99 @@ import './Email.scss';
 const Email = ({ setStepper, enterData, setEnterData }) => {
   let Navigate = useNavigate()
 
-  const handleSuccessGoogleLogin = (event) => {
-    console.log("--------- LOGIN SUCCESS ------------", event);
-    Navigate("/dashboard")
-  }
-  const handleFailGoogleLogin = (event) => {
-    console.log("--------- LOGIN Failed ------------", event);
-    // Navigate("/dashboard")
-  }
+  const [emailError, setEmailError] = useState(null)
 
   const enteringData = (e) => {
-    console.log(e)
+    setEmailError(null)
     setEnterData({
       ...enterData,
       [e.target.name]: e.target.value
     });
   }
+
+  const checkEmail = async () => {
+    if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(enterData.email)) {
+      setEmailError(null)
+      let res = await checkEmailAPI(enterData.email, false)
+      if (res.error) {
+        toast.error(res.error, {
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        console.log(res.data);
+        if (res.data.registered == true) {
+          toast.warn(res.data.message, {
+            position: "top-right",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          setEmailError(res.data.message)
+        } else {
+          setStepper(1);
+        }
+      }
+    } else {
+      setEmailError("Invalid Email")
+    }
+  }
+  const handleGoogleLogin = async (response) => {
+    console.log(response);
+    if (response.credential) {
+      let userObject = JWTDECODE(response.credential)
+      console.log(userObject);
+        let res = await checkEmailAPI(userObject.email, true)
+        if (res.error != null) {
+          toast.error(res.error, {
+            position: "top-right",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        } else {
+          if (res.data.registered == true) {
+
+          } else {
+            setEnterData((preVal) => {
+              return {
+                ...preVal,
+                email: response.email,
+                firstName: userObject.given_name,
+                lastName: userObject.family_name,
+              }
+            })
+            setStepper(1);
+          }
+        }
+    }
+  }
+
+  useEffect(() => {
+    /* global google */
+    google.accounts.id.initialize({
+      client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+      callback: handleGoogleLogin
+    })
+    google.accounts.id.renderButton(
+      document.getElementById("googleDiv"),
+      { theme: "filled_blue", size: "large", text: "signup_with", width: "100%" }
+    )
+  }, []);
 
   return (
     <>
@@ -40,10 +120,11 @@ const Email = ({ setStepper, enterData, setEnterData }) => {
         <div className="input_group">
           <label>Enter Email</label>
           <input name='email' onChange={enteringData} value={enterData.email} type='email' placeholder='name@company.com' />
+          <p className="error">{emailError && emailError}</p>
         </div>
-        <button onClick={() => setStepper(1)}>Continue</button>
+        <button onClick={checkEmail}>Continue</button>
         <div className="or">OR</div>
-        <GoogleLogin
+        {/* <GoogleLogin
           clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
           buttonText="Login"
           render={renderProps => (
@@ -52,8 +133,9 @@ const Email = ({ setStepper, enterData, setEnterData }) => {
           onSuccess={handleSuccessGoogleLogin}
           onFailure={handleFailGoogleLogin}
           cookiePolicy={'single_host_origin'}
-        />
-        <GoogleLogin
+        /> */}
+        <div id="googleDiv"></div>
+        {/* <GoogleLogin
           clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
           buttonText="Login"
           render={renderProps => (
@@ -62,7 +144,7 @@ const Email = ({ setStepper, enterData, setEnterData }) => {
           onSuccess={handleSuccessGoogleLogin}
           onFailure={handleFailGoogleLogin}
           cookiePolicy={'single_host_origin'}
-        />
+        /> */}
         <div className="already">Already have an account? <span onClick={() => Navigate("/login")}> Log in</span></div>
       </div>
     </>
