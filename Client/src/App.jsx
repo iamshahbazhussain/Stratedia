@@ -13,6 +13,8 @@ import { ToastContainer } from "react-toastify"
 // css
 import "./App.scss";
 import 'react-toastify/dist/ReactToastify.css';
+import Profile from "./Pages/Profile/Profile";
+
 
 
 const App = () => {
@@ -37,6 +39,9 @@ const App = () => {
         <Route path="/register" element={<SignUp />} />
         <Route path="/register/password/account" element={<Account />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/profile" element={<Profile/>} />
+ 
+        
       </Routes>
     </>
   );
