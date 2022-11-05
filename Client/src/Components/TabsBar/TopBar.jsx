@@ -1,27 +1,24 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 ///////////////Ant Design//////////////////
-import { Avatar } from 'antd';
-import 'antd/dist/antd.css';
+import { Avatar } from "antd";
+import "antd/dist/antd.css";
 
 ///////////////////ICONS///////////////////////
-import { FiSettings } from 'react-icons/fi';
+import { FiSettings } from "react-icons/fi";
 import { AiOutlineLogout } from "react-icons/ai";
 import { BsFillBellFill } from "react-icons/bs";
-
 
 //////////////////////CSS//////////////
 import "./TopBar.scss";
 
-
-
 const TopBar = ({ tabs, selectedTab, setSelectedTab }) => {
-  let Navigate = useNavigate()
+  let Navigate = useNavigate();
 
   const logOut = () => {
-    Navigate("/")
-  }
+    Navigate("/");
+  };
 
   return (
     <>
@@ -61,11 +58,13 @@ const TopBar = ({ tabs, selectedTab, setSelectedTab }) => {
               <BsFillBellFill />
             </abbr>
           </div>
-          <div className="action">
-            <abbr title="Profile">
-              <Avatar size={30} src='https://joeschmoe.io/api/v1/random' />
-            </abbr>
-          </div>
+          <Link to='/profile' >
+            <div className="action">
+              <abbr title="Profile">
+                <Avatar size={30} src="https://joeschmoe.io/api/v1/random" />
+              </abbr>
+            </div>
+          </Link>
         </div>
       </div>
     </>
