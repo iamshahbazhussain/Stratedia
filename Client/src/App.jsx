@@ -8,13 +8,14 @@ import Account from "./Components/Register/SignUp/Component/Accounts/Account";
 import Home from "./Pages/Home/Home";
 import Dashboard from "./Pages/SuperAdmin/Dash_Render";
 import Profile from "./Pages/Profile/Profile";
+import Users from "./Pages/Users/Users";
+import OTP from "./Components/Register/SignUp/Component/OTP/OTP";
 
 import { ToastContainer } from "react-toastify"
 
 // css
 import "./App.scss";
 import 'react-toastify/dist/ReactToastify.css';
-import Users from "./Pages/Users/Users";
 
 
 
@@ -40,9 +41,9 @@ const App = () => {
         <Route path="/register" element={<SignUp />} />
         <Route path="/register/password/account" element={<Account />} />
         <Route path="/dashboard" element={<Dashboard />} />
- 
         <Route path="/profile" element={<Profile/>} />
         <Route path="/use" element={<Users/>} />
+        <Route path="/otp" element={<OTP/>} />
         
         
       </Routes>

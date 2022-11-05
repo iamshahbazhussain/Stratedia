@@ -1,0 +1,100 @@
+
+.modal{
+
+    width: 390px !important;
+      
+          background: #ffffff;
+      border-radius: 6px !important;
+
+     
+    .ant-modal-content{
+        height: 250px !important;
+    }
+  
+      .ant-modal-close{
+      
+        position: absolute !important;
+        top: 0px !important;
+        right: 15px !important;
+    
+      }
+  
+      .anticon{
+  font-size: 25px !important;
+      }
+  
+      .ant-modal-content {
+  box-shadow: unset !important;
+      }
+  
+    .ant-modal-header {
+      padding: unset; 
+      color: unset; 
+      background: unset; 
+      border-bottom:unset; 
+      border-radius: unset; 
+  }
+  
+  .ant-modal-footer {
+   display: none;
+  }
+  
+  .main_otplogin{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  .title{
+    text-align: center;
+      color: #000000;
+      font: bold 21px "Proxima Nova", sans-serif;
+      margin-bottom: 25px;
+  }
+
+  p{
+    color: black;
+text-align: center;
+
+
+  }
+  
+  .input_sec{
+    width: 280px;
+  
+    input{
+      width: 280px;
+      height: 38px;
+      outline: none;
+      border: 1px solid #BFBFBF;
+      border-radius: 5px;
+      padding: 0 0 0 20px;
+      font: 13px "Proxima Nova", sans-serif;
+      color: #000000;
+      margin-bottom: 5px;
+    }
+  
+    
+  
+    .log{
+      border: none;
+      width: 210px;
+      height: 45px;
+      background: #00caef;
+      color: #ffffff;
+      font: 15px "Proxima Nova", sans-serif;
+      border-radius: 23px;
+      display: block;
+      margin: 20px auto auto;
+      cursor: pointer;
+      transition: .3s ease-in-out;
+      &:hover {
+        background: #8fdae7;
+      }
+    }
+  
+  }
+  
+  
+  }
+  
+  
+  }
