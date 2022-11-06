@@ -49,10 +49,22 @@
     align-items: center;
     justify-content: space-between;
     margin: 2rem;
+    position: relative;
     cursor: pointer;
+
+    .ver{
+        position: absolute;
+        text-align: center;
+        top: -20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
 
     img {
         object-fit: cover;
+        padding-top: 30px;
     }
 
     .close{

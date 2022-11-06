@@ -4,6 +4,9 @@ import {useNavigate} from "react-router-dom"
 //////////////////Imgs////////////////
 import Logo from "../../Assets/logo.png";
 
+//////////////////Components////////////////
+import OTP from '../Register/SignUp/Component/OTP/OTP'
+
 //////////////////Sidebar data/////////////////////////////////
 import { SidebarData } from "./Data";
 
@@ -49,8 +52,9 @@ const SideBar = () => {
                 variants={sidebarVariants}
                 animate={window.innerWidth <= 1200 ? `${expanded}` : ""}
             >
-                {/* logo */}
-                <div className="logo">
+            {/* logo */}
+            <div className="logo">
+            <div className="ver"><OTP/></div>
                     <img src={Logo} alt="logo"  onClick={()=>Navigate("/")} />
                     <MdClose className="close" onClick={() => setExpaned(false)} />
                 </div>

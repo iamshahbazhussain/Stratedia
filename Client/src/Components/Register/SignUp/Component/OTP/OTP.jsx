@@ -37,7 +37,7 @@ const OTP = () => {
        </div>
       </Modal>
 
-<button onClick={showModal2}> Show </button>
+<p className='click' onClick={showModal2}> Please click here to verify your email. </p>
 
     </div>
   )

@@ -58,7 +58,7 @@ const TopBar = ({ tabs, selectedTab, setSelectedTab }) => {
               <BsFillBellFill />
             </abbr>
           </div>
-          <Link to='/profile' >
+          <Link to='/dashboard/profile' >
             <div className="action">
               <abbr title="Profile">
                 <Avatar size={30} src="https://joeschmoe.io/api/v1/random" />
