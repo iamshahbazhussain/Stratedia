@@ -3,6 +3,7 @@ import Topbar from '../../Components/TabsBar/TopBar'
 import Overview from "./Overview/Overview";
 import Profile from "../Profile/Profile";
 import { Routes, Route } from "react-router-dom";
+import './SuperAdmin.scss'
 
 let Tabs = ['Dashboard']
 
@@ -17,12 +18,14 @@ const [selectedTab, setSelectedTab] =useState('Dashboard')
         selectedTab={selectedTab}
         setSelectedTab={setSelectedTab}
     />
+    <div className="main_route">
+    <Routes>
+    <Route path="/" element={<Overview/>} />
+    <Route path="/profile" element={<Profile/>} />
+    </Routes>
+    </div>
 </div>
 
-<Routes>
-<Route path="/" element={<Overview/>} />
-<Route path="/profile" element={<Profile/>} />
-</Routes>
 
     </>
   )
