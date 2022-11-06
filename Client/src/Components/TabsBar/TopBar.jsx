@@ -20,6 +20,7 @@ const TopBar = ({ tabs, selectedTab, setSelectedTab }) => {
   let Navigate = useNavigate()
 
   const logOut = () => {
+    localStorage.clear();
     Navigate("/")
   }
 

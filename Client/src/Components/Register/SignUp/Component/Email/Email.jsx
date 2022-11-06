@@ -1,16 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect , useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// icons 
+import JWTDECODE from "jwt-decode";
+
+// ICONS : 
 import { BsGoogle, BsFacebook } from 'react-icons/bs';
 
+// APIs :
 import { checkEmailAPI } from '../../../../../API/register';
-import JWTDECODE from "jwt-decode";
 import { toast } from "react-toastify"
 
-// Css 
+// CSS : 
 import './Email.scss';
-import { useState } from 'react';
+
 
 
 
@@ -84,7 +86,6 @@ const Email = ({ setStepper, enterData, setEnterData }) => {
         });
       } else {
         if (res.data.registered == true) {
-          console.log("-----------------", res.data);
           localStorage.setItem("token", res.data.token)
           toast.success("Login Success", {
             position: "top-right",
@@ -138,27 +139,7 @@ const Email = ({ setStepper, enterData, setEnterData }) => {
         </div>
         <button onClick={checkEmail}>Continue</button>
         <div className="or">OR</div>
-        {/* <GoogleLogin
-          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-          buttonText="Login"
-          render={renderProps => (
-            <button className="google_btn" onClick={renderProps.onClick} disabled={renderProps.disabled}> <BsGoogle /> Continue With Google</button>
-          )}
-          onSuccess={handleSuccessGoogleLogin}
-          onFailure={handleFailGoogleLogin}
-          cookiePolicy={'single_host_origin'}
-        /> */}
         <div id="googleDiv"></div>
-        {/* <GoogleLogin
-          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-          buttonText="Login"
-          render={renderProps => (
-            <button className="google_btn" onClick={renderProps.onClick} disabled={renderProps.disabled}> <BsFacebook /> Continue With Facebook</button>
-          )}
-          onSuccess={handleSuccessGoogleLogin}
-          onFailure={handleFailGoogleLogin}
-          cookiePolicy={'single_host_origin'}
-        /> */}
         <div className="already">Already have an account? <span onClick={() => Navigate("/login")}> Log in</span></div>
       </div>
     </>
