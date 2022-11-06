@@ -147,13 +147,7 @@ const Overview = () => {
 
     return (
         <div className="main_overview">
-            <div className="top_bar">
-                <Topbar
-                    tabs={Tabs}
-                    selectedTab={selectedTab}
-                    setSelectedTab={setSelectedTab}
-                />
-            </div>
+            
             <div className="over_content">
 
                 <div className="tile_main">

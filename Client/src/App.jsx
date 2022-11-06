@@ -7,6 +7,9 @@ import SignUp from "./Components/Register/SignUp/Signup"
 import Account from "./Components/Register/SignUp/Component/Accounts/Account";
 import Home from "./Pages/Home/Home";
 import Dashboard from "./Pages/SuperAdmin/Dash_Render";
+import Profile from "./Pages/Profile/Profile";
+import Users from "./Pages/Users/Users";
+import OTP from "./Components/Register/SignUp/Component/OTP/OTP";
 
 // APIs :
 import { ToastContainer } from "react-toastify"
@@ -53,11 +56,13 @@ const App = () => {
             <Account />
           </ProtectedRoute>
         } />
-        <Route path="/dashboard" element={
+        <Route path="dashboard/*" element={
           <ProtectedRoute user={user}>
             <Dashboard />
           </ProtectedRoute>
         } />
+        <Route path="/use" element={<Users/>} />
+        <Route path="/otp" element={<OTP/>} />
       </Routes>
     </>
   );
