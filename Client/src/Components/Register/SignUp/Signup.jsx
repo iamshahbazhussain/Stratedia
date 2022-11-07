@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState , useEffect } from 'react';
 
 import { useNavigate, useLocation } from 'react-router-dom';
 
 
-// Picture :
+// ASSETS :
 import right from '../../../Assets/right.jpg';
 
 
@@ -12,9 +11,10 @@ import right from '../../../Assets/right.jpg';
 import Email from './Component/Email/Email';
 import Password from './Component/Password/Password';
 
-
 // SCSS :      
 import './SignUp.scss'
+
+
 
 
 
@@ -77,4 +77,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default SignUp;

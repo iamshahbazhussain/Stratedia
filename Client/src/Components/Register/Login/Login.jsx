@@ -1,21 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// import { GoogleLogin } from 'react-google-login';
 import JWTDECODE from "jwt-decode";
+
+// Components :
+import Footer from '../../Footer/Footer';
+import Navbar from '../../Navbar/Navbar';
+
 // ASSETS :
 import buffer from '../../../Assets/buffer.svg'
 import Logo from "../../../Assets/logo.png"
 import { BsFacebook, BsGoogle } from 'react-icons/bs';
-import Footer from '../../Footer/Footer';
-import Navbar from '../../Navbar/Navbar';
 
+// APIs :
 import { checkEmailAPI, loginAPI } from '../../../API/register';
 import { toast } from "react-toastify"
 
 // CSS :
 import './Login.scss';
-import { useState } from 'react';
 
 
 
@@ -123,7 +125,6 @@ const Login = () => {
             <Navbar />
             <div className='main_login'>
                 <div className="login_left">
-                    {/* <img src={Logo} alt='Image Error' /> */}
                     <div className="left_content">
                         <div className="title">Login</div>
                         <div className="input_group">
@@ -141,28 +142,6 @@ const Login = () => {
                         </div>
                         <div className="or">OR</div>
                         <div id="googleDiv"></div>
-                        {/* <GoogleLogin
-                            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-                            buttonText="Login"
-                            render={renderProps => (
-                                <button className="google_btn" onClick={renderProps.onClick} disabled={renderProps.disabled}> <BsGoogle /> Continue With Google</button>
-                            )}
-                            onSuccess={handleSuccessGoogleLogin}
-                            onFailure={handleFailGoogleLogin}
-                            cookiePolicy={'single_host_origin'}
-                        /> */}
-
-                        {/* <GoogleLogin
-                            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-                            buttonText="Login"
-                            render={renderProps => (
-                                <button className="google_btn" onClick={renderProps.onClick} disabled={renderProps.disabled}> <BsFacebook /> Continue With Facebook</button>
-                            )}
-                            onSuccess={handleSuccessGoogleLogin}
-                            onFailure={handleFailGoogleLogin}
-                            cookiePolicy={'single_host_origin'}
-                        /> */}
-
                     </div>
                 </div>
                 <div className="login_right">

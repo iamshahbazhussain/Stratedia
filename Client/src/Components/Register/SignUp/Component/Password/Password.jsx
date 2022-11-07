@@ -1,12 +1,11 @@
-import React from 'react';
-import { useState } from 'react';
+import React ,{useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
-import { toast } from "react-toastify";
+// APIs :
 import { registerAPI } from '../../../../../API/register';
+import { toast } from "react-toastify";
 
-// Css 
+// CSS :
 import './Password.scss';
 
 
@@ -87,11 +86,11 @@ const Password = ({ enterData, setEnterData }) => {
         </div>
         <div className="input_group">
           <label>Create a Password</label>
-          <input onChange={enteringData} name='password' value={enterData.password} type='text' />
+          <input onChange={enteringData} name='password' value={enterData.password} type='password' />
         </div>
         <div className="input_group">
           <label>Confirm Password</label>
-          <input onChange={enteringData} name='cPassword' value={enterData.cPassword} type='text' />
+          <input onChange={enteringData} name='cPassword' value={enterData.cPassword} type='password' />
           <p className="error">{confirmPasswordError && confirmPasswordError}</p>
         </div>
         <div className="already">
@@ -106,4 +105,4 @@ const Password = ({ enterData, setEnterData }) => {
   )
 }
 
-export default Password
+export default Password;

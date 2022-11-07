@@ -16,13 +16,12 @@ const Dash_Render = () => {
 
   return (
     <>
- 
-    <div className="main_container">
-    <SideBar />
-     <SuperAdmin/>
-      
+
+      <div className="main_container">
+        <SideBar />
+        <SuperAdmin />
       </div>
-      </>
+    </>
   );
 };
 

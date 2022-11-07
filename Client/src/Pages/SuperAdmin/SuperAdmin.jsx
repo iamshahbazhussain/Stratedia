@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Topbar from '../../Components/TabsBar/TopBar'
 import Overview from "./Overview/Overview";
 import Profile from "../Profile/Profile";
@@ -9,8 +9,8 @@ import Users from '../Users/Users';
 let Tabs = ['Dashboard']
 
 const SuperAdmin = () => {
-      
-const [selectedTab, setSelectedTab] =useState('Dashboard')
+
+  const [selectedTab, setSelectedTab] = useState('Dashboard')
   return (
     <>
     <div className="top_bar">
