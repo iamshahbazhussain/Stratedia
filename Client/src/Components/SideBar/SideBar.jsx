@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {useNavigate} from "react-router-dom"
+import {Link, NavLink, useNavigate} from "react-router-dom"
 
 //////////////////Imgs////////////////
 import Logo from "../../Assets/logo.png";
@@ -54,7 +54,7 @@ const SideBar = () => {
             >
             {/* logo */}
             <div className="logo">
-            <div className="ver"><OTP/></div>
+    
                     <img src={Logo} alt="logo"  onClick={()=>Navigate("/")} />
                     <MdClose className="close" onClick={() => setExpaned(false)} />
                 </div>
@@ -62,14 +62,17 @@ const SideBar = () => {
                 <div className="menu">
                     {SidebarData.map((item, index) => {
                         return (
+                            <Link to={item.path} key={index} style={{color:'unset'}}>
                             <div
                                 className={selected === index ? "menuItem active" : "menuItem"}
                                 key={index}
                                 onClick={() => setSelected(index)}
                             >
-                                <item.icon />
-                                <span>{item.heading}</span>
+                            
+                            <item.icon />
+                            <span>{item.heading}</span>
                             </div>
+                            </Link>
                         );
                     })}
 

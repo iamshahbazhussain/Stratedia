@@ -4,6 +4,7 @@ import Overview from "./Overview/Overview";
 import Profile from "../Profile/Profile";
 import { Routes, Route } from "react-router-dom";
 import './SuperAdmin.scss'
+import Users from '../Users/Users';
 
 let Tabs = ['Dashboard']
 
@@ -22,6 +23,8 @@ const [selectedTab, setSelectedTab] =useState('Dashboard')
     <Routes>
     <Route path="/" element={<Overview/>} />
     <Route path="/profile" element={<Profile/>} />
+    <Route path="/dashboard/users" element={<Users/>} />
+    
     </Routes>
     </div>
 </div>

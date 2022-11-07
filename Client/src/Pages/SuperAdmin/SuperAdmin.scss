@@ -1,11 +1,18 @@
 .top_bar{
     height: 100vh;
     overflow: hidden;
-
+    @media(max-width:1200px){
+        
+        width: 100%;
+    }
     .main_route{
         height: 100vh;
         overflow: scroll;
         padding-bottom: 50px;
+        @media(max-width:1200px){
+        
+            width: 100%;
+        }
     }
 
 }

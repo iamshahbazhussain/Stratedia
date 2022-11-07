@@ -101,6 +101,13 @@ text-align: center;
 
   .click{
     text-decoration: underline;
-    color: green;
+    background-color: green;
     cursor: pointer;
+    color: white;
+    width: 96%;
+    margin: 1rem;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 20px;
+
   }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 /////////////////Component////////////////
 import Card from "./Component/Card/Card";
+import OTP from '../../../Components/Register/SignUp/Component/OTP/OTP'
 import Topbar from '../../../Components/TabsBar/TopBar'
 
 ///////////////////////Donut Chart//////////////////
@@ -147,7 +148,7 @@ const Overview = () => {
 
     return (
         <div className="main_overview">
-            
+            <OTP/>
             <div className="over_content">
 
                 <div className="tile_main">

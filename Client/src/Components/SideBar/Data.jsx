@@ -1,12 +1,11 @@
 // Sidebar imports
-import { FaFacebookF } from 'react-icons/fa';
-import { FaLinkedinIn } from 'react-icons/fa';
 import { SiGoogleads } from 'react-icons/si';
 import { SiGoogleanalytics } from 'react-icons/si';
 import { TbReport } from 'react-icons/tb';
 import { BiSupport } from 'react-icons/bi';
 import { MdDashboard } from 'react-icons/md';
 import { FaMoneyBillAlt } from 'react-icons/fa';
+import { FaUsers } from 'react-icons/fa';
 import { MdWork } from 'react-icons/md';
 
 ///////////////Component/////////////
@@ -21,6 +20,7 @@ export const SidebarData = [
   {
     icon: MdDashboard,
     heading: "Overview",
+    path: "/dashboard",
   },
   {
     icon: SiGoogleanalytics,
@@ -43,8 +43,9 @@ export const SidebarData = [
     heading: "Billing",
   },
   {
-    icon: MdWork,
-    heading: "Work Requests",
+    icon: FaUsers,
+    heading: "Users",
+    path:'dashboard/users'
   },
 
   {

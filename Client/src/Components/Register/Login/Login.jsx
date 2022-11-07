@@ -136,7 +136,7 @@ const Login = () => {
                         </div>
                         <button onClick={login}>Log in</button>
                         <div className="agree">
-                            <div className="buffer">I agree to <span>Terms of Service</span></div>
+                            <div className="buffer">Did You <span>Forgot Your Password </span>?</div>
                             <div className="already" onClick={() => Navigate("/register")}>Don't have an account?</div>
                         </div>
                         <div className="or">OR</div>
