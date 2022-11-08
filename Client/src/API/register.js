@@ -119,6 +119,28 @@ const continueWithFacebookAPI = async (data) => {
     return resolved;
 };
 
+const genrateResetOTPAPI = async (email) => {
+    let resolved = {
+        error: null,
+        data: null
+    }
+
+    try {
+        const res = await axios({
+            url: "/auth/genrateResetOtp",
+            method: "POST",
+            data: { email }
+        })
+        resolved.data = res.data
+    } catch (err) {
+        if (err.response) {
+            resolved.error = err.response.data.message
+        } else {
+            resolved.error = "Something went Wrong"
+        }
+    }
+    return resolved;
+};
 const genrateEmailOTPAPI = async (data) => {
     let resolved = {
         error: null,
@@ -158,6 +180,28 @@ const verifyEmailOTPAPI = async (otp) => {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`
             }
+        })
+        resolved.data = res.data
+    } catch (err) {
+        if (err.response) {
+            resolved.error = err.response.data.message
+        } else {
+            resolved.error = "Something went Wrong"
+        }
+    }
+    return resolved;
+};
+const verifyResetOTPAPI = async (data) => {
+    let resolved = {
+        error: null,
+        data: null
+    }
+
+    try {
+        const res = await axios({
+            url: "/auth/confirmResetOtp",
+            method: "POST",
+            data,
         })
         resolved.data = res.data
     } catch (err) {
@@ -221,5 +265,31 @@ const updateUserDataAPI = async (data) => {
     return resolved;
 };
 
+const updatePasswordAPI = async (password) => {
+    let resolved = {
+        error: null,
+        data: null
+    }
 
-export { checkEmailAPI, loginAPI, registerAPI, continueWithGoogleAPI, continueWithFacebookAPI, verifyEmailOTPAPI, genrateEmailOTPAPI , getUserDataAPI , updateUserDataAPI }
+    try {
+        const res = await axios({
+            url: "/auth/updatePassword",
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            },
+            data:{password}
+        })
+        resolved.data = res.data
+    } catch (err) {
+        if (err.response) {
+            resolved.error = err.response.data.message
+        } else {
+            resolved.error = "Something went Wrong"
+        }
+    }
+    return resolved;
+};
+
+
+export { checkEmailAPI, loginAPI, registerAPI, continueWithGoogleAPI, continueWithFacebookAPI, verifyEmailOTPAPI, genrateEmailOTPAPI, getUserDataAPI, updateUserDataAPI , genrateResetOTPAPI , verifyResetOTPAPI , updatePasswordAPI }

@@ -14,7 +14,7 @@ import { toast } from "react-toastify"
 import './LoginContent.scss'
 
 
-const LoginContent = () => {
+const LoginContent = ({ setStepper }) => {
 
     let Navigate = useNavigate()
 
@@ -114,26 +114,26 @@ const LoginContent = () => {
         )
     }, []);
 
-  return (
-    <div className="left_content">
-    <div className="title">Login</div>
-    <div className="input_group">
-        <label>Email</label>
-        <input type='email' name='email' value={enteredData.email} onChange={enteringData} />
-    </div>
-    <div className="input_group">
-        <label>Password</label>
-        <input type='password' name='password' value={enteredData.password} onChange={enteringData} />
-    </div>
-    <button onClick={login}>Log in</button>
-    <div className="agree">
-        <div className="buffer">Did You <span>Forgot Your Password </span>?</div>
-        <div className="already" onClick={() => Navigate("/register")}>Don't have an account?</div>
-    </div>
-    <div className="or">OR</div>
-    <div id="googleDiv"></div>
-</div>
-  )
+    return (
+        <div className="left_content">
+            <div className="title">Login</div>
+            <div className="input_group">
+                <label>Email</label>
+                <input type='email' name='email' value={enteredData.email} onChange={enteringData} />
+            </div>
+            <div className="input_group">
+                <label>Password</label>
+                <input type='password' name='password' value={enteredData.password} onChange={enteringData} />
+            </div>
+            <button onClick={login}>Log in</button>
+            <div className="agree">
+                <div className="buffer" onClick={() => setStepper(1)}>Did You <span>Forgot Your Password </span>?</div>
+                <div className="already" onClick={() => Navigate("/register")}>Don't have an account?</div>
+            </div>
+            <div className="or">OR</div>
+            <div id="googleDiv"></div>
+        </div>
+    )
 }
 
 export default LoginContent

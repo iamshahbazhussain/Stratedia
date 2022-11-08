@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Components :
 import Footer from '../../Footer/Footer';
 import Navbar from '../../Navbar/Navbar';
 import Email from './Components/Email/Email';
 import LoginContent from './Components/LoginContent/LoginContent';
-import OTPLog from './Components/OTPLog/OTPLog';
 import ResetPassword from './Components/ResetPassword/ResetPassword';
 
 // CSS :
@@ -17,12 +16,31 @@ import './Login.scss';
 
 const Login = () => {
 
+    const [stepper, setStepper] = useState(0)
+
+    const currentStep = () => {
+        switch (stepper) {
+            case 0:
+                return (<LoginContent setStepper={setStepper} />);
+                break;
+            case 1:
+                return (<Email setStepper={setStepper} />);
+                break;
+            case 2:
+                return (<ResetPassword setStepper={setStepper} />);
+                break;
+            default:
+                return (<LoginContent setStepper={setStepper} />);
+                break;
+        }
+    }
+
     return (
         <>
             <Navbar />
             <div className='main_login'>
                 <div className="login_left">
-                   <ResetPassword/>
+                    {currentStep()}
                 </div>
                 <div className="login_right">
                     <div className="para">

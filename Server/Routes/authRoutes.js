@@ -7,6 +7,7 @@ const EmailSender = require("../Middleware/emailSender")
 const Authrization = require("../Middleware/authenticator")
 
 const UserModal = require("../Models/user");
+const { findOne } = require("../Models/user");
 
 const Router = express.Router();
 const saltRound = 10;
@@ -29,6 +30,23 @@ Router.get("/", Authrization, async (req, res) => {
 Router.post("/", Authrization, async (req, res) => {
     try {
         const updateUser = await UserModal.findByIdAndUpdate(req.user._id, req.body, { new: true })
+        res.status(200).json({
+            message: "User Updated Success",
+            data: updateUser
+        })
+    } catch (err) {
+        res.status(500).json({
+            message: "Error at Getting UserData",
+            err
+        })
+    }
+})
+
+Router.post("/updatePassword", Authrization, async (req, res) => {
+    let { password } = req.body;
+    try {
+        const hasedPass = await Bcrypt.hashSync(password, saltRound)
+        const updateUser = await UserModal.findByIdAndUpdate(req.user._id, { $set: { password: hasedPass } }, { new: true })
         res.status(200).json({
             message: "User Updated Success",
             data: updateUser
@@ -145,12 +163,39 @@ Router.get("/genrateOtp", Authrization, async (req, res) => {
         }, req, res)
 
         const updateUser = await UserModal.findByIdAndUpdate(req.user._id, { $set: { "verifyToken": code } }, { new: true })
-        console.log("---------------", updateUser);
-        return
         res.status(200).json({
-            message: emailRes
+            message: "OTP Sent Success"
         });
     } catch (err) {
+        res.status(500).json({
+            message: "Error at Verifing Email",
+            err
+        })
+    }
+})
+Router.post("/genrateResetOtp", async (req, res) => {
+    try {
+        let findUser = await UserModal.findOne({ email: req.body.email })
+        if (findUser) {
+            let code = Math.round(Math.random() * 9999)
+            console.log("---------CODE--------", code);
+            let emailRes = await EmailSender({
+                to: findUser.email,
+                subject: "Verification OTP",
+                text: `Your Verfication OTP = ${code}`
+            }, req, res)
+            const updateUser = await UserModal.findByIdAndUpdate(findUser._id, { $set: { "verifyToken": code } }, { new: true })
+            console.log("---------------", updateUser);
+            res.status(200).json({
+                message: "OTP Sent Success"
+            });
+        } else {
+            res.status(404).json({
+                message: "User not Found"
+            })
+        }
+    } catch (err) {
+        console.log(err);
         res.status(500).json({
             message: "Error at Verifing Email",
             err
@@ -170,6 +215,35 @@ Router.post("/confirmOtp", Authrization, async (req, res) => {
         } else {
             res.status(400).json({
                 message: "Wrong OTP"
+            })
+        }
+    } catch (err) {
+        res.status(500).json({
+            message: "Error at Verifing Email",
+            err
+        })
+    }
+})
+Router.post("/confirmResetOtp", async (req, res) => {
+    let { email, otp } = req.body;
+    console.log(req.body);
+    try {
+        let findUser = await UserModal.findOne({ email: email })
+        if (findUser) {
+            if (findUser.verifyToken == otp) {
+                let token = await JWT.sign({ data: { email: findUser.email, _id: findUser._id } }, process.env.JWT_SECRET)
+                res.status(200).json({
+                    message: "verified Success",
+                    token
+                })
+            } else {
+                res.status(400).json({
+                    message: "Wrong OTP"
+                })
+            }
+        } else {
+            res.status(404).json({
+                message: "User not Found"
             })
         }
     } catch (err) {

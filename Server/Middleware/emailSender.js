@@ -2,7 +2,7 @@ const sgMail = require("@sendgrid/mail")
 
 sgMail.setApiKey(process.env.EMAIL_API)
 
-const emailSender = ({ to, subject, text }, req, res) => {
+const emailSender = ({ to, subject, text }, req, res , next) => {
 
     const msg = {
         to: to, // Change to your recipient
@@ -14,7 +14,7 @@ const emailSender = ({ to, subject, text }, req, res) => {
     sgMail
         .send(msg)
         .then((res) => {
-            return "Email Sent Success"
+            next()
         })
         .catch((error) => {
             console.log(error);
