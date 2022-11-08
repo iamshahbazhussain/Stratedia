@@ -13,21 +13,20 @@ const SuperAdmin = () => {
   const [selectedTab, setSelectedTab] = useState('Dashboard')
   return (
     <>
-    <div className="top_bar">
-    <Topbar
-        tabs={Tabs}
-        selectedTab={selectedTab}
-        setSelectedTab={setSelectedTab}
-    />
-    <div className="main_route">
-    <Routes>
-    <Route path="/" element={<Overview/>} />
-    <Route path="/profile" element={<Profile/>} />
-    <Route path="/dashboard/users" element={<Users/>} />
-    
-    </Routes>
-    </div>
-</div>
+      <div className="top_bar">
+        <Topbar
+          tabs={Tabs}
+          selectedTab={selectedTab}
+          setSelectedTab={setSelectedTab}
+        />
+        <div className="main_route">
+          <Routes>
+            <Route path="/" element={<Overview />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/dashboard/users" element={<Users />} />
+          </Routes>
+        </div>
+      </div>
 
 
     </>

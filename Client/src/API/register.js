@@ -1,6 +1,6 @@
 import axios from "../AxiosInstance";
 
-const checkEmailAPI = async (email , googleContinue) => {
+const checkEmailAPI = async (email, googleContinue) => {
     let resolved = {
         error: null,
         data: null
@@ -10,7 +10,7 @@ const checkEmailAPI = async (email , googleContinue) => {
         const res = await axios({
             url: "/auth/check",
             method: "POST",
-            data:{
+            data: {
                 email,
                 googleContinue
             }
@@ -119,5 +119,56 @@ const continueWithFacebookAPI = async (data) => {
     return resolved;
 };
 
+const genrateEmailOTPAPI = async (data) => {
+    let resolved = {
+        error: null,
+        data: null
+    }
 
-export { checkEmailAPI, loginAPI, registerAPI, continueWithGoogleAPI, continueWithFacebookAPI }
+    try {
+        const res = await axios({
+            url: "/auth/genrateOtp",
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        })
+        resolved.data = res.data
+    } catch (err) {
+        if (err.response) {
+            resolved.error = err.response.data.message
+        } else {
+            resolved.error = "Something went Wrong"
+        }
+    }
+    return resolved;
+};
+
+const verifyEmailOTPAPI = async (otp) => {
+    let resolved = {
+        error: null,
+        data: null
+    }
+
+    try {
+        const res = await axios({
+            url: "/auth/confirmOtp",
+            method: "POST",
+            data: { otp },
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        })
+        resolved.data = res.data
+    } catch (err) {
+        if (err.response) {
+            resolved.error = err.response.data.message
+        } else {
+            resolved.error = "Something went Wrong"
+        }
+    }
+    return resolved;
+};
+
+
+export { checkEmailAPI, loginAPI, registerAPI, continueWithGoogleAPI, continueWithFacebookAPI, verifyEmailOTPAPI, genrateEmailOTPAPI }

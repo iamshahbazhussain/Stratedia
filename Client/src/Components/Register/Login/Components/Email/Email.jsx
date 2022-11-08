@@ -14,20 +14,19 @@ import '../LoginContent/LoginContent.scss'
 const Email = () => {
 
 
-    
+
 
   return (
     <div className="left_content">
-    <div className="title">Enter Your Email</div>
-    <div className="input_group">
+      <div className="title">Enter Your Email</div>
+      <div className="input_group">
         <label>Email</label>
-        <input type='email' name='email'  />
-    </div>
-   
-    <button>Continue</button>
-   
+        <input type='email' name='email' />
+      </div>
+      <button>Continue</button>
 
-</div>
+
+    </div>
   )
 }
 

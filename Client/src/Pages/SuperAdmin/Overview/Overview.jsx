@@ -148,14 +148,13 @@ const Overview = () => {
 
     return (
         <div className="main_overview">
-            <OTP/>
             <div className="over_content">
-
+                <OTP />
                 <div className="tile_main">
                     <div className="rank">
                         <div className="ran">Rankings</div>
                         <div className="cards">
-                            <Card 
+                            <Card
                                 title={"10"}
                                 para={"Google Rankings"}
                                 num={"2 %"}

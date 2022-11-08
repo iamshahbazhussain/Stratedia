@@ -14,24 +14,24 @@ import '../LoginContent/LoginContent.scss'
 const ResetPassword = () => {
 
 
-    
+
 
   return (
     <div className="left_content">
-    <div className="title">Create Your New Password.</div>
-    <div className="input_group">
+      <div className="title">Create Your New Password.</div>
+      <div className="input_group">
         <label>New Password</label>
-        <input type='text' name='newpassword'/>
-    </div>
-    <div className="input_group">
+        <input type='text' name='newpassword' />
+      </div>
+      <div className="input_group">
         <label>Confirm Password</label>
-        <input type='text' name='confirmpassword'/>
-    </div>
-   
-    <button>Continue</button>
-   
+        <input type='text' name='confirmpassword' />
+      </div>
 
-</div>
+      <button>Continue</button>
+
+
+    </div>
   )
 }
 

@@ -23,11 +23,15 @@ const userSchema = new mongoose.Schema({
     facebookToken: {
         type: String
     },
+    emailVerified: {
+        type: Boolean,
+        default: false
+    },
     verifyToken: {
         type: String
     },
-    role:{
-        type:String,
+    role: {
+        type: String,
     }
 
 }, { timestamps: true });

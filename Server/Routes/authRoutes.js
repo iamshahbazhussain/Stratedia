@@ -2,6 +2,7 @@ const express = require("express");
 const JWT = require("jsonwebtoken");
 const Bcrypt = require("bcrypt");
 const AppError = require("../Utils/AppError");
+const EmailSender = require("../Middleware/emailSender")
 
 const Authrization = require("../Middleware/authenticator")
 
@@ -113,6 +114,52 @@ Router.post("/check", async (req, res) => {
     } catch (err) {
         res.status(500).json({
             message: "Error at Checking UserData",
+            err
+        })
+    }
+})
+
+Router.get("/genrateOtp", Authrization, async (req, res) => {
+    try {
+        let code = Math.round(Math.random() * 9999)
+        console.log("---------CODE--------", code);
+        let emailRes = await EmailSender({
+            to: req.user.email,
+            subject: "Verification OTP",
+            text: `Your Verfication OTP = ${code}`
+        }, req, res)
+
+        const updateUser = await UserModal.findByIdAndUpdate(req.user._id, { $set: { "verifyToken": code } } , {new:true})
+        console.log("---------------" , updateUser);
+        return
+        res.status(200).json({
+            message: emailRes
+        });
+    } catch (err) {
+        res.status(500).json({
+            message: "Error at Verifing Email",
+            err
+        })
+    }
+})
+
+Router.post("/confirmOtp", Authrization, async (req, res) => {
+    let { otp } = req.body;
+    console.log(req.body);
+    try {
+        if (req.user.verifyToken == otp) {
+            let updateUser = await UserModal.findByIdAndUpdate(req.user._id, { $set: { emailVerified: true } })
+            res.status(200).json({
+                message: "Email verified Success"
+            })
+        } else {
+            res.status(400).json({
+                message: "Wrong OTP"
+            })
+        }
+    } catch (err) {
+        res.status(500).json({
+            message: "Error at Verifing Email",
             err
         })
     }

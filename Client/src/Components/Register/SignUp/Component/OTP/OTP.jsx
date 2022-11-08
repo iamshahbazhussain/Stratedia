@@ -1,44 +1,117 @@
-import React, {useState} from 'react'
+import React, { useEffect, useState } from 'react'
 
 
-import {Modal} from "antd";
+import { Modal } from "antd";
+
+import { genrateEmailOTPAPI, verifyEmailOTPAPI } from '../../../../../API/register';
+
 import "antd/dist/antd.css";
 import './OTP.scss'
+import { toast } from 'react-toastify';
+
+
+
 
 
 const OTP = () => {
 
-    const [isModalOpen2, setIsModalOpen2] = useState(false);
+  const [openVerifyOtpModal, setOpenVerifyOtpModal] = useState(false);
+  const [otp, setOtp] = useState("")
+  const [genrated, setGenrated] = useState(false)
 
-    const handleCancel2 = () => {
-    setIsModalOpen2(false);
+
+  const enteringOtp = (event) => {
+    setOtp(event.target.value)
+  }
+
+
+  const closeVerifyOtpModal = () => {
+    setOpenVerifyOtpModal(false);
   };
-  const handleOk2 = () => {
-    setIsModalOpen2(false);
+  const showVerifyOtpModal = () => {
+    setOpenVerifyOtpModal(true);
   };
-  const showModal2 = () => {
-    setIsModalOpen2(true);
-  };
+
+
+  const confirmOTP = async () => {
+    let res = await verifyEmailOTPAPI(otp)
+    if (res.error != null) {
+      toast.error(res.error, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } else {
+      toast.success(res.data.message, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      setTimeout(() => {
+        window.location.href = "/dashboard"
+      }, 3000);
+    }
+  }
+
+
+  const genratingOtp = async () => {
+    let res = await genrateEmailOTPAPI()
+    if (res.error != null) {
+      toast.error(res.error, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } else {
+      toast.success(res.data.message, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      setGenrated(true)
+    }
+  }
+  useEffect(() => {
+    if (openVerifyOtpModal) {
+      genratingOtp()
+    }
+  }, [openVerifyOtpModal])
 
   return (
     <div>
-              
-    <Modal className="modal" open={isModalOpen2} onOk={handleOk2} onCancel={handleCancel2}>
-       <div className="main_otplogin">
-<div className="title">
-  Enter OTP
-</div>
-<p>Enter the confirmation code. We send to your email to verify your email.</p>
-<div className="input_sec">
-  <input type="text" /> 
-  <button className="log">Verify</button>
-</div>
-
-       </div>
+      <Modal className="modal" open={openVerifyOtpModal} onCancel={closeVerifyOtpModal}>
+        <div className="main_otplogin">
+          <div className="title">
+            Enter OTP
+          </div>
+          <p>Enter the confirmation code. We send to your email to verify your email.</p>
+          <div className="input_sec">
+            <input type="text" value={otp} onChange={enteringOtp} />
+            <button className="log" onClick={confirmOTP}>Verify</button>
+          </div>
+        </div>
       </Modal>
-
-<p className='click' onClick={showModal2}> Please click here to verify your email. </p>
-
+      <p className='click' onClick={showVerifyOtpModal}> Please click here to verify your email. </p>
     </div>
   )
 }
