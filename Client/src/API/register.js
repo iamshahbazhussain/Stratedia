@@ -170,5 +170,56 @@ const verifyEmailOTPAPI = async (otp) => {
     return resolved;
 };
 
+const getUserDataAPI = async (otp) => {
+    let resolved = {
+        error: null,
+        data: null
+    }
 
-export { checkEmailAPI, loginAPI, registerAPI, continueWithGoogleAPI, continueWithFacebookAPI, verifyEmailOTPAPI, genrateEmailOTPAPI }
+    try {
+        const res = await axios({
+            url: "/auth",
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        })
+        resolved.data = res.data
+    } catch (err) {
+        if (err.response) {
+            resolved.error = err.response.data.message
+        } else {
+            resolved.error = "Something went Wrong"
+        }
+    }
+    return resolved;
+};
+
+const updateUserDataAPI = async (data) => {
+    let resolved = {
+        error: null,
+        data: null
+    }
+
+    try {
+        const res = await axios({
+            url: "/auth",
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            },
+            data
+        })
+        resolved.data = res.data
+    } catch (err) {
+        if (err.response) {
+            resolved.error = err.response.data.message
+        } else {
+            resolved.error = "Something went Wrong"
+        }
+    }
+    return resolved;
+};
+
+
+export { checkEmailAPI, loginAPI, registerAPI, continueWithGoogleAPI, continueWithFacebookAPI, verifyEmailOTPAPI, genrateEmailOTPAPI , getUserDataAPI , updateUserDataAPI }

@@ -26,6 +26,7 @@ const authentication = async (req, res, next) => {
 
         next();
     } catch (err) {
+        console.log("------",err);
         return next(
             new AppError("Authentication Error", 500)
         )

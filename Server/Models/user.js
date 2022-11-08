@@ -8,6 +8,9 @@ const userSchema = new mongoose.Schema({
     lastName: {
         type: String
     },
+    profileImg: {
+        type: String,
+    },
     email: {
         type: String,
         unique: [true, "Email Already Exist"]
@@ -16,6 +19,24 @@ const userSchema = new mongoose.Schema({
         type: String,
         minlength: [8, "Enter Password with 8 or more Character"],
         select: false
+    },
+    number: {
+        type: String
+    },
+    address: {
+        type: String,
+    },
+    city: {
+        type: String,
+    },
+    state: {
+        type: String,
+    },
+    zipCode: {
+        type: String,
+    },
+    country: {
+        type: String,
     },
     googleToken: {
         type: String

@@ -49,11 +49,11 @@ const TopBar = ({ tabs, selectedTab, setSelectedTab }) => {
               <AiOutlineLogout />
             </abbr>
           </div>
-          <div className="action">
+          {/* <div className="action">
             <abbr title="Settings">
               <FiSettings />
             </abbr>
-          </div>
+          </div> */}
           <div className="action">
             <abbr title="Notification">
               <BsFillBellFill />

@@ -26,6 +26,21 @@ Router.get("/", Authrization, async (req, res) => {
     }
 })
 
+Router.post("/", Authrization, async (req, res) => {
+    try {
+        const updateUser = await UserModal.findByIdAndUpdate(req.user._id, req.body, { new: true })
+        res.status(200).json({
+            message: "User Updated Success",
+            data: updateUser
+        })
+    } catch (err) {
+        res.status(500).json({
+            message: "Error at Getting UserData",
+            err
+        })
+    }
+})
+
 Router.post("/login", async (req, res, next) => {
     let { email, password } = req.body;
     try {
@@ -129,8 +144,8 @@ Router.get("/genrateOtp", Authrization, async (req, res) => {
             text: `Your Verfication OTP = ${code}`
         }, req, res)
 
-        const updateUser = await UserModal.findByIdAndUpdate(req.user._id, { $set: { "verifyToken": code } } , {new:true})
-        console.log("---------------" , updateUser);
+        const updateUser = await UserModal.findByIdAndUpdate(req.user._id, { $set: { "verifyToken": code } }, { new: true })
+        console.log("---------------", updateUser);
         return
         res.status(200).json({
             message: emailRes
