@@ -1,113 +1,124 @@
+.modal {
+  width: 390px !important;
 
-.modal{
+  background: #ffffff;
+  border-radius: 6px !important;
 
-    width: 390px !important;
-      
-          background: #ffffff;
-      border-radius: 6px !important;
-
-     
-    .ant-modal-content{
-        height: 250px !important;
-    }
-  
-      .ant-modal-close{
-      
-        position: absolute !important;
-        top: 0px !important;
-        right: 15px !important;
-    
-      }
-  
-      .anticon{
-  font-size: 25px !important;
-      }
-  
-      .ant-modal-content {
-  box-shadow: unset !important;
-      }
-  
-    .ant-modal-header {
-      padding: unset; 
-      color: unset; 
-      background: unset; 
-      border-bottom:unset; 
-      border-radius: unset; 
+  .ant-modal-content {
+    height: 250px !important;
   }
-  
+
+  .ant-modal-close {
+    position: absolute !important;
+    top: 0px !important;
+    right: 15px !important;
+  }
+
+  .anticon {
+    font-size: 25px !important;
+  }
+
+  .ant-modal-content {
+    box-shadow: unset !important;
+  }
+
+  .ant-modal-header {
+    padding: unset;
+    color: unset;
+    background: unset;
+    border-bottom: unset;
+    border-radius: unset;
+  }
+
   .ant-modal-footer {
-   display: none;
+    display: none;
   }
-  
-  .main_otplogin{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  .title{
-    text-align: center;
+
+  .main_otplogin {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .title {
+      text-align: center;
       color: #000000;
       font: bold 21px "Proxima Nova", sans-serif;
       margin-bottom: 25px;
-  }
-
-  p{
-    color: black;
-text-align: center;
-
-
-  }
-  
-  .input_sec{
-    width: 280px;
-  
-    input{
-      width: 280px;
-      height: 38px;
-      outline: none;
-      border: 1px solid #BFBFBF;
-      border-radius: 5px;
-      padding: 0 0 0 20px;
-      font: 13px "Proxima Nova", sans-serif;
-      color: #000000;
-      margin-bottom: 5px;
     }
-  
-    
-  
-    .log{
-      border: none;
-      width: 210px;
-      height: 45px;
-      background: #00caef;
-      color: #ffffff;
-      font: 15px "Proxima Nova", sans-serif;
-      border-radius: 23px;
-      display: block;
-      margin: 20px auto auto;
-      cursor: pointer;
-      transition: .3s ease-in-out;
-      &:hover {
-        background: #8fdae7;
+
+    p {
+      color: black;
+      text-align: center;
+    }
+
+    .input_sec {
+      width: 280px;
+
+      input {
+        width: 280px;
+        height: 38px;
+        outline: none;
+        border: 1px solid #bfbfbf;
+        border-radius: 5px;
+        padding: 0 0 0 20px;
+        font: 13px "Proxima Nova", sans-serif;
+        color: #000000;
+        margin-bottom: 5px;
+      }
+
+      .log {
+        border: none;
+        width: 210px;
+        height: 45px;
+        background: #00caef;
+        color: #ffffff;
+        font: 15px "Proxima Nova", sans-serif;
+        border-radius: 23px;
+        display: block;
+        margin: 20px auto auto;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        &:hover {
+          background: #8fdae7;
+        }
       }
     }
-  
   }
-  
-  
-  }
-  
-  
-  }
+}
 
-  .click{
-    text-decoration: underline;
-    background-color: green;
-    cursor: pointer;
+.btn_otp {
+  background-color: green;
+  cursor: pointer;
+  width: 96%;
+  border-radius: 8px;
+  margin: 1rem;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .click {
     color: white;
-    width: 96%;
-    margin: 1rem;
     font-size: 16px;
     font-weight: 600;
-    padding: 10px 20px;
-
   }
+
+  button {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 500;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: "Poppins";
+    color: black;
+    border: 1px solid white;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      background-color: whitesmoke;
+    }
+  }
+}
