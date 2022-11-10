@@ -146,13 +146,12 @@ const Email = ({ setStepper }) => {
           disabled={!enterOtp}
         />
       </div>
-      <div className="btn_sec">
-        {enterOtp ? (
-          <Button onClick={confirmOtp}>Verify</Button>
-        ) : (
-          <Button onClick={genrateOtp}>Genrate OTP</Button>
-        )}
-      </div>
+
+      {enterOtp ? (
+        <Button onClick={confirmOtp}>Verify</Button>
+      ) : (
+        <Button onClick={genrateOtp}>Genrate OTP</Button>
+      )}
     </div>
   );
 };

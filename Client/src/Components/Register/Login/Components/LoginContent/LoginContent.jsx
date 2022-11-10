@@ -183,16 +183,15 @@ const LoginContent = ({ setStepper }) => {
           onChange={enteringData}
         />
       </div>
-      <div className="btn_sec">
-        <Button onClick={login}>Log in</Button>
-        <Button className="already" onClick={() => Navigate("/register")}>
-          SignUp
-        </Button>
-      </div>
+
+      <Button onClick={login}>Log in</Button>
 
       <div className="agree">
-        <div className="buffer" onClick={() => setStepper(1)}>
+        <div className="already" onClick={() => setStepper(1)}>
           Did You <span>Forgot Your Password </span>?
+        </div>
+        <div className="already" onClick={() => Navigate("/register")}>
+          Don't have an account <span>SignUP</span>?
         </div>
       </div>
       <div className="or">OR</div>

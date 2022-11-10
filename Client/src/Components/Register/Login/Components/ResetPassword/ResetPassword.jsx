@@ -131,9 +131,8 @@ const ResetPassword = () => {
           onChange={enteringData}
         />
       </div>
-      <div className="btn_sec">
-        <Button onClick={savePassword}>Update</Button>
-      </div>
+
+      <Button onClick={savePassword}>Update</Button>
     </div>
   );
 };

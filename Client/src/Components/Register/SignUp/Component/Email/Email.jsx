@@ -6,6 +6,13 @@ import JWTDECODE from "jwt-decode";
 // ICONS : 
 import { BsGoogle, BsFacebook } from 'react-icons/bs';
 
+// MUI
+import { alpha, styled } from "@mui/material/styles";
+import InputBase from "@mui/material/InputBase";
+
+// ANTD Design 
+import { Button } from 'antd';
+
 // APIs :
 import { checkEmailAPI } from '../../../../../API/register';
 import { toast } from "react-toastify"
@@ -13,14 +20,67 @@ import { toast } from "react-toastify"
 // CSS : 
 import './Email.scss';
 
-
-
+ 
+const BootstrapInput = styled(InputBase)(({ theme }) => ({
+  "label + &": {
+    marginTop: theme.spacing(3),
+  },
+  "& .MuiInputBase-input": {
+    borderRadius: 4,
+    position: "relative",
+    backgroundColor: theme.palette.mode === "light" ? "#fcfcfb" : "#2b2b2b",
+    border: "1px solid #ced4da",
+    fontSize: 16,
+    width: "auto",
+    padding: "10px 12px",
+    transition: theme.transitions.create([
+      "border-color",
+      "background-color",
+      "box-shadow",
+    ]),
+    // Use the system font instead of the default Roboto font.
+    fontFamily: [
+      "-apple-system",
+      "BlinkMacSystemFont",
+      '"Segoe UI"',
+      "Roboto",
+      '"Helvetica Neue"',
+      "Arial",
+      "sans-serif",
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(","),
+    "&:focus": {
+      boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
+      borderColor: theme.palette.primary.main,
+    },
+  },
+}));
 
 
 const Email = ({ setStepper, enterData, setEnterData }) => {
   let Navigate = useNavigate()
 
   const [emailError, setEmailError] = useState(null)
+  const [loadings, setLoadings] = useState([]);
+
+  const enterLoading = (index: number) => {
+    setLoadings(prevLoadings => {
+      const newLoadings = [...prevLoadings];
+      newLoadings[index] = true;
+      return newLoadings;
+    });
+
+    setTimeout(() => {
+      setLoadings(prevLoadings => {
+        const newLoadings = [...prevLoadings];
+        newLoadings[index] = false;
+        return newLoadings;
+      });
+    }, 6000);
+  };
+
 
   const enteringData = (e) => {
     setEmailError(null)
@@ -134,10 +194,12 @@ const Email = ({ setStepper, enterData, setEnterData }) => {
         <div className="para">Get started - it's free. No credit card needed.</div>
         <div className="input_group">
           <label>Enter Email</label>
-          <input name='email' onChange={enteringData} value={enterData.email} type='email' placeholder='name@company.com' />
+          <BootstrapInput name='email' onChange={enteringData} value={enterData.email} type='email' placeholder='name@company.com'/>
           <p className="error">{emailError && emailError}</p>
         </div>
-        <button onClick={checkEmail}>Continue</button>
+        <Button type="primary" loading={loadings[0]} onClick={() => enterLoading(0)} onClick={checkEmail}>
+        Continue
+        </Button>
         <div className="or">OR</div>
         <div id="googleDiv"></div>
         <div className="already">Already have an account? <span onClick={() => Navigate("/login")}> Log in</span></div>
