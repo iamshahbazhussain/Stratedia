@@ -19,6 +19,8 @@ import {
     Legend,
 } from "recharts";
 
+import { useSelector } from "react-redux";
+
 ///////////////////CSS/////////////////
 import "./Overview.scss";
 
@@ -143,13 +145,19 @@ const reactDonutChartOnMouseEnter = (item) => {
 
 const Overview = () => {
 
-    ////////////////Topbar State/////////////
+    let userData = useSelector((state) => state.userData)
+
     let [selectedTab, setSelectedTab] = useState("Dashboard");
 
     return (
         <div className="main_overview">
             <div className="over_content">
-                <OTP />
+                {
+                    userData?.emailVerified ?
+                        null
+                        :
+                        <OTP />
+                }
                 <div className="tile_main">
                     <div className="rank">
                         <div className="ran">Rankings</div>

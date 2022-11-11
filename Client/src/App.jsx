@@ -9,7 +9,10 @@ import Home from "./Pages/Home/Home";
 import Dashboard from "./Pages/SuperAdmin/Dash_Render";
 
 // APIs :
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import { getUserDataAPI } from "./API/register";
+import { useDispatch } from "react-redux";
+import { addUser } from "./GlobalStore/actions/userAction"
 
 // CSS :
 import "./App.scss";
@@ -24,7 +27,30 @@ const ProtectedRoute = ({ user, children }) => {
 };
 
 const App = () => {
+  let dispatch = useDispatch()
+
   let user = localStorage.getItem("token");
+
+  const gettingProfileData = async () => {
+    let res = await getUserDataAPI()
+    if (res.error) {
+      // toast.error(res.error, {
+      //   position: "top-right",
+      //   autoClose: 4000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      //   theme: "light",
+      // });
+    } else {
+      dispatch(addUser(res.data.data))
+    }
+  }
+  useEffect(() => {
+    gettingProfileData()
+  }, [])
 
   return (
     <>
