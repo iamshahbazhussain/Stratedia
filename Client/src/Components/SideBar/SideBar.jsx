@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link, NavLink, useNavigate} from "react-router-dom"
+import { Link, NavLink, useNavigate } from "react-router-dom"
 
 //////////////////Imgs////////////////
 import Logo from "../../Assets/logo.png";
@@ -17,6 +17,8 @@ import { motion } from "framer-motion";
 import { UilBars } from "@iconscout/react-unicons";
 import { MdClose } from 'react-icons/md';
 
+import { useSelector } from "react-redux"
+
 ////////////////////CSS//////////////////
 import "./SideBar.scss";
 
@@ -24,6 +26,8 @@ import "./SideBar.scss";
 
 const SideBar = () => {
     let Navigate = useNavigate()
+
+    let userData = useSelector((state) => state.userData)
 
     const [selected, setSelected] = useState(0);
 
@@ -52,28 +56,46 @@ const SideBar = () => {
                 variants={sidebarVariants}
                 animate={window.innerWidth <= 1200 ? `${expanded}` : ""}
             >
-            {/* logo */}
-            <div className="logo">
-    
-                    <img src={Logo} alt="logo"  onClick={()=>Navigate("/")} />
+                {/* logo */}
+                <div className="logo">
+
+                    <img src={Logo} alt="logo" onClick={() => Navigate("/")} />
                     <MdClose className="close" onClick={() => setExpaned(false)} />
                 </div>
 
                 <div className="menu">
                     {SidebarData.map((item, index) => {
-                        return (
-                            <Link to={item.path} key={index} style={{color:'unset'}}>
-                            <div
-                                className={selected === index ? "menuItem active" : "menuItem"}
-                                key={index}
-                                onClick={() => setSelected(index)}
-                            >
-                            
-                            <item.icon />
-                            <span>{item.heading}</span>
-                            </div>
-                            </Link>
-                        );
+                        if (userData?.role == "admin") {
+                            return (
+                                <Link to={item.path} key={index} style={{ color: 'unset' }}>
+                                    <div
+                                        className={selected === index ? "menuItem active" : "menuItem"}
+                                        key={index}
+                                        onClick={() => setSelected(index)}
+                                    >
+
+                                        <item.icon />
+                                        <span>{item.heading}</span>
+                                    </div>
+                                </Link>
+                            );
+                        } else {
+                            if (item.heading != "Users") {
+                                return (
+                                    <Link to={item.path} key={index} style={{ color: 'unset' }}>
+                                        <div
+                                            className={selected === index ? "menuItem active" : "menuItem"}
+                                            key={index}
+                                            onClick={() => setSelected(index)}
+                                        >
+
+                                            <item.icon />
+                                            <span>{item.heading}</span>
+                                        </div>
+                                    </Link>
+                                );
+                            }
+                        }
                     })}
 
                     <div className="menuItem"></div>

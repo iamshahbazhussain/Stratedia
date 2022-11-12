@@ -13,10 +13,10 @@
         display: flex;
         gap: 2rem;
 
-@media(max-width:1200px){
+        @media(max-width:1200px) {
 
-    padding-left: 50px;
-}
+            padding-left: 50px;
+        }
 
 
         .tab {
@@ -36,16 +36,21 @@
         gap: 20px;
         align-items: center;
         justify-content: center;
-        @media screen and (max-width: 420px) {
-           gap: 8px;
-           
 
-            }
+        @media screen and (max-width: 420px) {
+            gap: 8px;
+
+
+        }
 
         .action {
             display: flex;
             justify-content: center;
             align-items: center;
+
+            .profile_icon{
+                color: #00caef;
+            }
 
             abbr {
                 cursor: pointer;

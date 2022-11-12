@@ -6,7 +6,7 @@ import { Avatar } from "antd";
 import "antd/dist/antd.css";
 
 ///////////////////ICONS///////////////////////
-import { FiSettings } from "react-icons/fi";
+import { FaUserAlt } from "react-icons/fa";
 import { AiOutlineLogout } from "react-icons/ai";
 import { BsFillBellFill } from "react-icons/bs";
 import { IconButton } from "@mui/material";
@@ -15,9 +15,12 @@ import MenuItem from '@mui/material/MenuItem';
 
 //////////////////////CSS//////////////
 import "./TopBar.scss";
+import { useSelector } from "react-redux";
 
 const TopBar = ({ tabs, selectedTab, setSelectedTab }) => {
   let Navigate = useNavigate();
+
+  let userData = useSelector((state)=>state.userData)
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -68,7 +71,7 @@ const TopBar = ({ tabs, selectedTab, setSelectedTab }) => {
           </div>
           <div className="action">
             <IconButton onClick={handleClick} aria-controls={open ? 'basic-menu' : undefined} aria-haspopup="true" aria-expanded={open ? 'true' : undefined}>
-              <Avatar size={30} src="https://joeschmoe.io/api/v1/random" />
+              <Avatar className="profile_icon" size={30} src={userData?.profileImg || <FaUserAlt/>} />
             </IconButton>
             <Menu
               id="basic-menu"
@@ -83,6 +86,7 @@ const TopBar = ({ tabs, selectedTab, setSelectedTab }) => {
                 Navigate("/dashboard/profile")
                 handleClose()
               }}>Profile</MenuItem>
+              <MenuItem onClick={logOut}>Settings</MenuItem>
               <MenuItem onClick={logOut}>Logout</MenuItem>
             </Menu>
           </div>
