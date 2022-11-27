@@ -120,12 +120,11 @@
 
   .or {
     position: relative;
-    width: 100%;
+    width: -webkit-fill-available;
     font-weight: 400;
     font-size: 16px;
     color: #676879;
     text-align: center;
-    margin-right: 24px;
     display: flex;
     font-family: "Poppins";
     justify-content: center;

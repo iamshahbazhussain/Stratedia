@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import JWTDECODE from "jwt-decode";
+import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props"
 
 // MUI
 import { alpha, styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import Button from "@mui/material/Button";
+import { FaFacebookF } from "react-icons/fa"
 
 // APIs :
 import { checkEmailAPI, loginAPI } from "../../../../../API/register";
@@ -148,6 +150,52 @@ const LoginContent = ({ setStepper }) => {
     }
   };
 
+  const responseFacebook = async (response) => {
+    if (response.email) {
+      let res = await checkEmailAPI(response.email, true);
+      if (res.error != null) {
+        toast.error(res.error, {
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        if (res.data.registered == true) {
+          localStorage.setItem("token", res.data.token);
+          toast.success("Login Success", {
+            position: "top-right",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          setTimeout(() => {
+            window.location.href = "/dashboard";
+          }, 2500);
+        } else {
+          Navigate("/register", {
+            state: {
+              userData: {
+                email: response.email,
+                firstName: response.name,
+                lastName: "",
+              },
+              step: 1,
+            },
+          });
+        }
+      }
+    }
+  }
+
   useEffect(() => {
     /* global google */
     google.accounts.id.initialize({
@@ -195,7 +243,19 @@ const LoginContent = ({ setStepper }) => {
         </div>
       </div>
       <div className="or">OR</div>
-      <div id="googleDiv"></div>
+      <div className="line_space">
+        <div id="googleDiv"></div>
+        <FacebookLogin
+          appId="3249415381989998"
+          autoLoad={false}
+          fields="name,email,picture"
+          scope="public_profile,email,user_friends"
+          callback={responseFacebook}
+          render={renderProps => (
+            <Button size="small" onClick={renderProps.onClick} className="facobook_btn" > <FaFacebookF className="icon" /> Continue with Facebook </Button>
+          )}
+        />
+      </div>
     </div>
   );
 };
