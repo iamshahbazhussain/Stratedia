@@ -7,6 +7,8 @@ import SignUp from "./Components/Register/SignUp/Signup";
 import Account from "./Components/Register/SignUp/Component/Accounts/Account";
 import Home from "./Pages/Home/Home";
 import Dashboard from "./Pages/SuperAdmin/Dash_Render";
+import Privacy from "./Pages/Privacy/Privacy";
+import Terms from "./Pages/Terms/Terms";
 
 // APIs :
 import { toast, ToastContainer } from "react-toastify";
@@ -68,6 +70,8 @@ const App = () => {
       />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/privacy" element={<Privacy/>} />
+        <Route path="/terms" element={<Terms/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<SignUp />} />
         <Route
