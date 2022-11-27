@@ -1,10 +1,12 @@
-import React, { useEffect , useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import JWTDECODE from "jwt-decode";
+import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props"
 
 // ICONS : 
 import { BsGoogle, BsFacebook } from 'react-icons/bs';
+import { FaFacebookF } from "react-icons/fa"
 
 // MUI
 import { alpha, styled } from "@mui/material/styles";
@@ -20,7 +22,7 @@ import { toast } from "react-toastify"
 // CSS : 
 import './Email.scss';
 
- 
+
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
   "label + &": {
     marginTop: theme.spacing(3),
@@ -65,7 +67,7 @@ const Email = ({ setStepper, enterData, setEnterData }) => {
   const [emailError, setEmailError] = useState(null)
   const [loadings, setLoadings] = useState([]);
 
-  const enterLoading = (index: number) => {
+  const enterLoading = (index) => {
     setLoadings(prevLoadings => {
       const newLoadings = [...prevLoadings];
       newLoadings[index] = true;
@@ -174,6 +176,50 @@ const Email = ({ setStepper, enterData, setEnterData }) => {
       }
     }
   }
+  const responseFacebook = async (response) => {
+    if (response.email) {
+      let res = await checkEmailAPI(response.email, true);
+      if (res.error != null) {
+        toast.error(res.error, {
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        if (res.data.registered == true) {
+          localStorage.setItem("token", res.data.token);
+          toast.success("Login Success", {
+            position: "top-right",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          setTimeout(() => {
+            window.location.href = "/dashboard";
+          }, 2500);
+        } else {
+          setEnterData((preVal) => {
+            return {
+              ...preVal,
+              email: response.email,
+              firstName: response.name,
+              lastName: "",
+            }
+          })
+          setStepper(1);
+        }
+      }
+    }
+  }
 
   useEffect(() => {
     /* global google */
@@ -194,14 +240,27 @@ const Email = ({ setStepper, enterData, setEnterData }) => {
         <div className="para">Get started - it's free. No credit card needed.</div>
         <div className="input_group">
           <label>Enter Email</label>
-          <BootstrapInput name='email' onChange={enteringData} value={enterData.email} type='email' placeholder='name@company.com'/>
+          <BootstrapInput name='email' onChange={enteringData} value={enterData.email} type='email' placeholder='name@company.com' />
           <p className="error">{emailError && emailError}</p>
         </div>
         <Button type="primary" loading={loadings[0]} onClick={() => enterLoading(0)} onClick={checkEmail}>
-        Continue
+          Continue
         </Button>
         <div className="or">OR</div>
-        <div id="googleDiv"></div>
+        <div className="line_col">
+
+          <div id="googleDiv"></div>
+          <FacebookLogin
+            appId="3249415381989998"
+            autoLoad={false}
+            fields="name,email,picture"
+            scope="public_profile,email,user_friends"
+            callback={responseFacebook}
+            render={renderProps => (
+              <Button size="small" onClick={renderProps.onClick} className="facobook_btn" > <FaFacebookF className="icon" /> Continue with Facebook </Button>
+            )}
+          />
+        </div>
         <div className="already">Already have an account? <span onClick={() => Navigate("/login")}> Log in</span></div>
       </div>
     </>
