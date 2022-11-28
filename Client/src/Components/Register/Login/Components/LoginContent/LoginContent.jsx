@@ -151,8 +151,9 @@ const LoginContent = ({ setStepper }) => {
   };
 
   const responseFacebook = async (response) => {
-    if (response.email) {
-      let res = await checkEmailAPI(response.email, true);
+    console.log("---------- FB RES ------------", response);
+    if (response.userID) {
+      let res = await checkEmailAPI(response.userID, null, true);
       if (res.error != null) {
         toast.error(res.error, {
           position: "top-right",
@@ -184,9 +185,10 @@ const LoginContent = ({ setStepper }) => {
           Navigate("/register", {
             state: {
               userData: {
-                email: response.email,
+                email: "",
                 firstName: response.name,
                 lastName: "",
+                facebookUserID:response.userID
               },
               step: 1,
             },

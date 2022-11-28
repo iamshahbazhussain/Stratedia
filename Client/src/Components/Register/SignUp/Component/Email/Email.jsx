@@ -177,8 +177,9 @@ const Email = ({ setStepper, enterData, setEnterData }) => {
     }
   }
   const responseFacebook = async (response) => {
-    if (response.email) {
-      let res = await checkEmailAPI(response.email, true);
+    console.log("---------- FB RES ------------", response);
+    if (response.userID) {
+      let res = await checkEmailAPI(response.userID, null, true);
       if (res.error != null) {
         toast.error(res.error, {
           position: "top-right",
@@ -210,9 +211,10 @@ const Email = ({ setStepper, enterData, setEnterData }) => {
           setEnterData((preVal) => {
             return {
               ...preVal,
-              email: response.email,
+              email: "",
               firstName: response.name,
               lastName: "",
+              facebookUserID: response.userID
             }
           })
           setStepper(1);
@@ -243,7 +245,7 @@ const Email = ({ setStepper, enterData, setEnterData }) => {
           <BootstrapInput name='email' onChange={enteringData} value={enterData.email} type='email' placeholder='name@company.com' />
           <p className="error">{emailError && emailError}</p>
         </div>
-        <Button type="primary" loading={loadings[0]} onClick={() => enterLoading(0)} onClick={checkEmail}>
+        <Button type="primary" loading={loadings[0]} onClick={checkEmail}>
           Continue
         </Button>
         <div className="or">OR</div>

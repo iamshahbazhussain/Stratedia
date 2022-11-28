@@ -93,20 +93,28 @@ Router.post("/login", async (req, res, next) => {
     }
 })
 Router.post("/register", async (req, res) => {
-    let { email, firstName, lastName, googleToken, facebookToken, password } = req.body;
+    let { email, firstName, lastName, googleToken, facebookToken, password, facebookUserID } = req.body;
     try {
-        const hasedPass = await Bcrypt.hashSync(password, saltRound)
-        const userData = new UserModal({
-            email,
-            firstName,
-            lastName,
-            password: hasedPass
-        });
-        await userData.save();
+        const findUser = await UserModal.findOne({ email: email })
+        if (findUser) {
+            res.status(400).json({
+                message: "User with this email Already Exist",
+            })
+        } else {
+            const hasedPass = await Bcrypt.hashSync(password, saltRound)
+            const userData = new UserModal({
+                email,
+                firstName,
+                lastName,
+                password: hasedPass,
+                facebookUserID
+            });
+            await userData.save();
 
-        res.status(200).json({
-            message: "UserRegister Success",
-        })
+            res.status(200).json({
+                message: "UserRegister Success",
+            })
+        }
 
     } catch (err) {
         res.status(500).json({
@@ -117,11 +125,11 @@ Router.post("/register", async (req, res) => {
 })
 
 Router.post("/check", async (req, res) => {
-    let { email, googleContinue } = req.body;
+    let { id, googleContinue, facebookContinue } = req.body;
     try {
-        let findUser = await UserModal.findOne({ email: email })
-        if (findUser) {
-            if (googleContinue) {
+        if (googleContinue == true) {
+            let findUser = await UserModal.findOne({ email: id })
+            if (findUser) {
                 let token = await JWT.sign({ data: { email: findUser.email, _id: findUser._id } }, process.env.JWT_SECRET)
                 res.status(200).json({
                     message: "Login Success",
@@ -134,16 +142,44 @@ Router.post("/check", async (req, res) => {
                 });
             } else {
                 res.status(200).json({
-                    message: "User already Exist , please login",
-                    registered: true
+                    message: "User not Found",
+                    registered: false
+                })
+            }
+        } else if (facebookContinue == true) {
+            let findUser = await UserModal.findOne({ facebookUserID: id })
+            if (findUser) {
+                let token = await JWT.sign({ data: { email: findUser.email, _id: findUser._id } }, process.env.JWT_SECRET)
+                res.status(200).json({
+                    message: "Login Success",
+                    registered: true,
+                    token,
+                    data: {
+                        ...findUser._doc,
+                        password: undefined
+                    }
+                });
+            } else {
+                res.status(200).json({
+                    message: "User not Found",
+                    registered: false
                 })
             }
         } else {
-            res.status(200).json({
-                message: "User not Found",
-                registered: false
-            })
+            let findUser = await UserModal.findOne({ email: id })
+            if (findUser) {
+                res.status(200).json({
+                    message: "User already Exist , please login",
+                    registered: true
+                })
+            } else {
+                res.status(200).json({
+                    message: "User not Found",
+                    registered: false
+                })
+            }
         }
+
     } catch (err) {
         res.status(500).json({
             message: "Error at Checking UserData",

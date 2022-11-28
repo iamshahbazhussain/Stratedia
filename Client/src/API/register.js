@@ -1,6 +1,6 @@
 import axios from "../AxiosInstance";
 
-const checkEmailAPI = async (email, googleContinue) => {
+const checkEmailAPI = async (id, googleContinue , facebookContinue) => {
     let resolved = {
         error: null,
         data: null
@@ -11,8 +11,9 @@ const checkEmailAPI = async (email, googleContinue) => {
             url: "/auth/check",
             method: "POST",
             data: {
-                email,
-                googleContinue
+                id,
+                googleContinue,
+                facebookContinue
             }
         })
         resolved.data = res.data

@@ -44,6 +44,9 @@ const userSchema = new mongoose.Schema({
     facebookToken: {
         type: String
     },
+    facebookUserID: {
+        type: String
+    },
     emailVerified: {
         type: Boolean,
         default: false
@@ -53,7 +56,7 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        default:"customer"
+        default: "customer"
     }
 
 }, { timestamps: true });

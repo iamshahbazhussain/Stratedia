@@ -9,6 +9,7 @@ const connection = async () => {
             useNewUrlParser: true,
             autoIndex: true,
         });
+        // mongoose.set("debug" , true)
         console.log("DataBase Connected");
     } catch (err) {
         console.log(err);

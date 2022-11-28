@@ -1,4 +1,4 @@
-import React ,{useState} from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // APIs :
@@ -59,7 +59,7 @@ const Password = ({ enterData, setEnterData }) => {
   const [confirmPasswordError, setConfirmPasswordError] = useState(null)
   const [loadings, setLoadings] = useState([]);
 
-  const enterLoading = (index: number) => {
+  const enterLoading = (index) => {
     setLoadings(prevLoadings => {
       const newLoadings = [...prevLoadings];
       newLoadings[index] = true;
@@ -84,7 +84,7 @@ const Password = ({ enterData, setEnterData }) => {
   }
 
   const registerUser = async () => {
-    if (!enterData.firstName || !enterData.lastName || !enterData.password) {
+    if (!enterData.email || !enterData.firstName || !enterData.lastName || !enterData.password) {
       toast.warning("Please fill all the fields", {
         position: "top-right",
         autoClose: 4000,
@@ -143,6 +143,13 @@ const Password = ({ enterData, setEnterData }) => {
           <label>Last Name</label>
           <BootstrapInput onChange={enteringData} name='lastName' value={enterData.lastName} type='text' />
         </div>
+        {
+          enterData?.facebookUserID &&
+          <div className="input_group">
+            <label>Email</label>
+            <BootstrapInput onChange={enteringData} name='email' value={enterData.email} type='text' />
+          </div>
+        }
         <div className="input_group">
           <label>Create a Password</label>
           <BootstrapInput onChange={enteringData} name='password' value={enterData.password} type='password' />
@@ -157,7 +164,7 @@ const Password = ({ enterData, setEnterData }) => {
           I agree to the <span>Terms of Service</span> and <span>Privacy Policy</span>
         </div>
         <div className="btn_sec">
-          <Button type="primary" loading={loadings[0]} onClick={() => enterLoading(0)} onClick={registerUser}>Continue</Button>
+          <Button type="primary" loading={loadings[0]} onClick={registerUser}>Continue</Button>
         </div>
       </div>
     </>
