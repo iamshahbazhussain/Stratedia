@@ -1,0 +1,50 @@
+.notification_contianer {}
+
+.ant-popover-placement-bottomRight {
+    width: 300px;
+
+    .ant-popover-inner-content {
+        padding: 1rem .5rem;
+        max-height: 270px;
+        overflow-y: scroll;
+    }
+
+    .notification_box {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+
+        .notification {
+            display: flex;
+            gap: .7rem;
+            align-items: center;
+            background-color: whitesmoke;
+            padding: .5rem;
+
+            .img_box {
+                background-color: gray;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50rem;
+                color: white;
+            }
+
+            .title {
+                color: #00caef;
+                font-size: .8rem;
+            }
+
+            .details {
+                font-size: .7rem;
+            }
+
+            .date {
+                color: red;
+                font-size: .8rem;
+            }
+        }
+    }
+}

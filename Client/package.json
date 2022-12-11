@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chatscope/chat-ui-kit-react": "^1.9.8",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@iconscout/react-unicons": "^1.1.6",

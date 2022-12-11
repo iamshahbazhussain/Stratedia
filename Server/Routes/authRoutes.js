@@ -8,6 +8,7 @@ const Authrization = require("../Middleware/authenticator")
 
 const UserModal = require("../Models/user");
 const { findOne } = require("../Models/user");
+const createNotification = require("../Utils/CreateNotifications");
 
 const Router = express.Router();
 const saltRound = 10;
@@ -110,6 +111,9 @@ Router.post("/register", async (req, res) => {
                 facebookUserID
             });
             await userData.save();
+            req.user = userData;
+
+            await createNotification({ title: "Email Verifications", details: "Please Verify Your Email" }, req, res)
 
             res.status(200).json({
                 message: "UserRegister Success",
@@ -245,6 +249,9 @@ Router.post("/confirmOtp", Authrization, async (req, res) => {
     try {
         if (req.user.verifyToken == otp) {
             let updateUser = await UserModal.findByIdAndUpdate(req.user._id, { $set: { emailVerified: true } })
+
+            await createNotification({ title: "Email Verifications", details: "Your Email Verified Success" }, req, res)
+
             res.status(200).json({
                 message: "Email verified Success"
             })

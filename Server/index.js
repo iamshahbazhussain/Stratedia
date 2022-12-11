@@ -8,6 +8,7 @@ const DbConnection = require("./DB/dataBaseConnection");
 const AppError = require("./Utils/AppError");
 
 const AuthRoute = require("./Routes/authRoutes");
+const NotificationsRoute = require("./Routes/notificationRoutes");
 
 let app = express();
 
@@ -27,6 +28,7 @@ app.get("/health-check", (req, res) => {
 });
 
 app.use("/api/auth", AuthRoute)
+app.use("/api/notifications", NotificationsRoute)
 
 app.all("*", (req, res, next) =>
     next(new AppError(`can't find ${req.originalUrl} on this server`, 404))

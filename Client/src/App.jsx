@@ -15,10 +15,12 @@ import { toast, ToastContainer } from "react-toastify";
 import { getUserDataAPI } from "./API/register";
 import { useDispatch } from "react-redux";
 import { addUser } from "./GlobalStore/actions/userAction"
+import { addNotification } from "./GlobalStore/actions/notificationsActions";
 
 // CSS :
 import "./App.scss";
 import "react-toastify/dist/ReactToastify.css";
+import { getMyNotificationsAPI } from "./API/notifications";
 
 const ProtectedRoute = ({ user, children }) => {
   if (!user) {
@@ -48,6 +50,12 @@ const App = () => {
       // });
     } else {
       dispatch(addUser(res.data.data))
+      let response = await getMyNotificationsAPI()
+      console.log("---------------------------- NOTI", response);
+      if (response.error != null) {
+      } else {
+        dispatch(addNotification(response.data.data));
+      }
     }
   }
   useEffect(() => {
@@ -70,8 +78,8 @@ const App = () => {
       />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/privacy" element={<Privacy/>} />
-        <Route path="/terms" element={<Terms/>} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<SignUp />} />
         <Route

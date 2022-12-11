@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 ///////////////Ant Design//////////////////
-import { Avatar } from "antd";
+import { Avatar, Popover } from "antd";
 import "antd/dist/antd.css";
 
 ///////////////////ICONS///////////////////////
@@ -13,6 +13,9 @@ import { IconButton } from "@mui/material";
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
+// Components :
+import Notification from "../NotificationDropDown/Notification";
+
 //////////////////////CSS//////////////
 import "./TopBar.scss";
 import { useSelector } from "react-redux";
@@ -20,7 +23,7 @@ import { useSelector } from "react-redux";
 const TopBar = ({ tabs, selectedTab, setSelectedTab }) => {
   let Navigate = useNavigate();
 
-  let userData = useSelector((state)=>state.userData)
+  let userData = useSelector((state) => state.userData)
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -66,12 +69,13 @@ const TopBar = ({ tabs, selectedTab, setSelectedTab }) => {
           </div> */}
           <div className="action">
             <abbr title="Notification">
-              <BsFillBellFill />
+              {/* <BsFillBellFill /> */}
+              <Notification />
             </abbr>
           </div>
           <div className="action">
             <IconButton onClick={handleClick} aria-controls={open ? 'basic-menu' : undefined} aria-haspopup="true" aria-expanded={open ? 'true' : undefined}>
-              <Avatar className="profile_icon" size={30} src={userData?.profileImg || <FaUserAlt/>} />
+              <Avatar className="profile_icon" size={30} src={userData?.profileImg || <FaUserAlt />} />
             </IconButton>
             <Menu
               id="basic-menu"

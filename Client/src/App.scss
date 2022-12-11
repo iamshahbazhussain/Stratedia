@@ -14,20 +14,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-#googleDiv{
+
+#googleDiv {
   width: -webkit-fill-available !important;
   display: flex;
   justify-content: center;
 }
 
-.line_space{
+.line_space {
   width: -webkit-fill-available;
   display: flex;
   gap: .5rem;
   align-items: center;
 }
-.line_col{
+
+.line_col {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.center_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: -webkit-fill-available;
 }
