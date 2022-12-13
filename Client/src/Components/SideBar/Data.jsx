@@ -45,16 +45,17 @@ export const SidebarData = [
   {
     icon: FaUsers,
     heading: "Users",
-    path:'dashboard/users'
+    path:'/dashboard/users'
   },
-
+  
   {
     icon: TbReport,
     heading: 'Reports'
   },
   {
     icon: BiSupport,
-    heading: 'Chat'
+    heading: 'Chat',
+    path:'/dashboard/chat'
   },
   
 ];

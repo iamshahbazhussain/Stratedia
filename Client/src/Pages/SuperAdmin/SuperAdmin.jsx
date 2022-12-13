@@ -5,6 +5,7 @@ import Topbar from '../../Components/TabsBar/TopBar'
 import Overview from "./Overview/Overview";
 import Profile from "../Profile/Profile";
 import Users from '../Users/Users';
+import Chat from '../Chat/Chat';
 
 import './SuperAdmin.scss'
 
@@ -29,8 +30,8 @@ const SuperAdmin = () => {
           <Routes>
             <Route path="/" element={<Overview />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/dashboard/profile" element={<Profile />} />
-            <Route path="/dashboard/users" element={<Users />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/chat" element={<Chat />} />
           </Routes>
         </div>
       </div>

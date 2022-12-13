@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@chatscope/chat-ui-kit-react": "^1.9.8",
+    "@chatscope/chat-ui-kit-styles": "^1.4.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@iconscout/react-unicons": "^1.1.6",
@@ -35,6 +36,8 @@
     "redux": "^4.2.0",
     "sass": "^1.55.0",
     "slick-carousel": "^1.8.1",
+    "socket.io": "^4.5.4",
+    "socket.io-client": "^4.5.4",
     "use-history": "^1.4.1",
     "web-vitals": "^2.1.4"
   },

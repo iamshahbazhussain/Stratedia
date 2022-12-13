@@ -1,4 +1,4 @@
-.main_user{
+.main_user {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -8,81 +8,84 @@
     box-sizing: border-box;
     padding-bottom: 40px;
 
-.title{
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding-bottom: 50px;
-    padding-left: 50px;
-    font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 25px;
-    color: black;
-    @media (max-width: 500px) {
-      font-size: 20px;
-      padding-bottom: 20px;
-      padding-left: 20px;
+    .title {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-bottom: 50px;
+        padding-left: 50px;
+        font-family: sofia-pro, Roboto, Helvetica, Arial, sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 25px;
+        color: black;
 
+        @media (max-width: 500px) {
+            font-size: 20px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+
+        }
     }
-}
 
-.table_scroll{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 120px;
-    @media(max-width:550px){
-        overflow: scroll !important;
-       
-       
+    .table_scroll {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 120px;
+
+        @media(max-width:550px) {
+            overflow: scroll !important;
+
+
+        }
     }
-}
 
 
-.ant-table{
-    @media(max-width:550px){
-      width: 500px !important;
-    }   
-}
+    .ant-table {
+        @media(max-width:550px) {
+            width: 500px !important;
+        }
+    }
 
 
-.ant-table-wrapper{
-    width: 90%;
-
-    @media(max-width:680px){
+    .ant-table-wrapper {
         width: 90%;
-    }
-    @media(max-width:550px){
-        width: 500px;
-       
-    }
 
-}
+        @media(max-width:680px) {
+            width: 90%;
+        }
 
+        @media(max-width:550px) {
+            width: 500px;
 
-.ant-table-pagination-right{
-    @media(max-width:550px){
-        width: 500px;
-       
-    }
-}
-
-
-.ant-table-thead > tr > th{
-    @media(max-width:600px){
-        font-size: 12px !important;
+        }
 
     }
-}
 
-.ant-table-tbody > tr > td{
-    @media(max-width:600px){
-        font-size: 12px !important;
 
+    .ant-table-pagination-right {
+        @media(max-width:550px) {
+            width: 500px;
+
+        }
     }
-}
+
+
+    .ant-table-thead>tr>th {
+        @media(max-width:600px) {
+            font-size: 12px !important;
+
+        }
+    }
+
+    .ant-table-tbody>tr>td {
+        @media(max-width:600px) {
+            font-size: 12px !important;
+
+        }
+    }
 
 }
