@@ -28,6 +28,7 @@ const Chat = () => {
     const [selectedConversation, setSelectedConversation] = useState(null)
     const [allMessages, setAllMessages] = useState(null)
     const [messageInputValue, setMessageInputValue] = useState("");
+    const [newMessage, setNewMessage] = useState(null)
 
     const socket = useRef();
 
@@ -51,7 +52,6 @@ const Chat = () => {
         }
     }
     const gettingMessages = async () => {
-        console.log("-------CONVERSATION----------" , selectedChatUser);
         let res = await getAllMessagesAPI(selectedConversation._id)
         if (res.error != null) {
 
@@ -116,10 +116,15 @@ const Chat = () => {
     useEffect(() => {
         socket && socket.current.on("getMessage", (data) => {
             // alert("comming")
-            gettingMessages();
+            setNewMessage(data)
         });
     }, []);
-console.log("----------------SOCKET----------" , socket);
+    useEffect(() => {
+        if (newMessage) {
+            gettingMessages();
+        }
+    }, [newMessage])
+
     return (
         <>
             <div className="chat_container">
